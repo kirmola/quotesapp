@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10"
 Django = "^4.2.7"
 django-autoslug = "^1.9.9"
+django-tailwind = "^3.6.0"
 
 
 [tool.poetry.group.dev.dependencies]

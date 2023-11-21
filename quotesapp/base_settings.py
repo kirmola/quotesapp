@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 try:
     from dotenv import load_dotenv
+    load_dotenv()
 except:
     pass
 
-load_dotenv()
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 
@@ -42,8 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]+[
-    "mainapp"
+    "mainapp",
+    "tailwind",
+    "theme",
 ]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+TAILWIND_APP_NAME = "theme"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,3 +132,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "staticfiles"
+]
+
+STATIC_ROOT = BASE_DIR/"static"
