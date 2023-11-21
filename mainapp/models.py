@@ -9,6 +9,7 @@ class Quote(models.Model):
 
     quote = models.CharField(_("Quote"), max_length=250)
     author = models.ForeignKey("mainapp.Author", verbose_name=_("Author"), on_delete=models.CASCADE)
+    topics = models.ForeignKey("mainapp.Topic", verbose_name=_("Topics/Tags"), on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("Quote")
@@ -35,3 +36,18 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         return reverse("Author_detail", kwargs={"pk": self.pk})
+
+
+class Topic(models.Model):
+
+    topic = models.CharField(_("Topics/Tags: "), max_length=50, default=None)
+
+    class Meta:
+        verbose_name = _("Topic")
+        verbose_name_plural = _("Topics")
+
+    def __str__(self):
+        return self.topic
+
+    def get_absolute_url(self):
+        return reverse("Topic_detail", kwargs={"pk": self.pk})
