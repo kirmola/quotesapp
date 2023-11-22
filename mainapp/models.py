@@ -50,6 +50,7 @@ class Author(models.Model):
 class Topic(models.Model):
 
     topic = models.CharField(_("Topics/Tags: "), max_length=50, default=None)
+    topic_slug = AutoSlugField(editable=False, populate_from="topic", default=None)
 
     class Meta:
         verbose_name = _("Topic")

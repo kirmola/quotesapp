@@ -7,5 +7,5 @@ def getAllAuthors():
 
 
 def getAllTopics():
-    queryset = Topic.objects.all()
+    queryset = Topic.objects.values_list("topic", "topic_slug")
     return queryset

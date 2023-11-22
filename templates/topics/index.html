@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-{% for i in data %}
-{{i}}
-{% endfor %}
+
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    {% for each in data.items %}
+    <ul class="list list-flush">
+        {{each.0| title}}
+        {% for title,url in each.1.items %}
+        <li class="list-item"><a href="{{url}}/">{{title|title}}</a></li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</div>  
 
 {% for i in paginator %}
 {{i}}

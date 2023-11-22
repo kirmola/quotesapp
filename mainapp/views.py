@@ -11,7 +11,6 @@ def authors(request):
     parsedData = {}
     for each in ascii_lowercase:
         parsedData[each] = {k:v for k,v in data if str(v)[0] == each}
-    print(parsedData)
     paginator = Paginator(data, 50)
     return render(request, "authors/index.html", {
         "data": parsedData,
@@ -22,7 +21,10 @@ def authors(request):
 
 def topics(request):
     data = getAllTopics()
-    parsedData = [i for i in data]
+    parsedData = {}
+    for each in ascii_lowercase:
+        parsedData[each] = {k:v for k,v in data if str(v)[0]==each}
+    print(parsedData)
     paginator = Paginator(data, 50)
     return render(request, "topics/index.html", {
         "data": parsedData,
