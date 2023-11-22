@@ -33,8 +33,8 @@ class Quote(models.Model):
 
 class Author(models.Model):
 
-    author = models.CharField(_("Author: "), max_length=50)
-    author_slug = AutoSlugField(editable=False, populate_from="author", default=None)
+    author = models.CharField(_("Author: "), max_length=50, unique=True)
+    author_slug = AutoSlugField(editable=False, populate_from="author", default=None, unique=True)
 
     class Meta:
         verbose_name = _("Author")
@@ -49,8 +49,8 @@ class Author(models.Model):
 
 class Topic(models.Model):
 
-    topic = models.CharField(_("Topics/Tags: "), max_length=50, default=None)
-    topic_slug = AutoSlugField(editable=False, populate_from="topic", default=None)
+    topic = models.CharField(_("Topics/Tags: "), max_length=50, default=None, unique=True)
+    topic_slug = AutoSlugField(editable=False, populate_from="topic", default=None, unique=True)
 
     class Meta:
         verbose_name = _("Topic")
