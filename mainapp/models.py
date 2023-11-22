@@ -23,6 +23,7 @@ class Quote(models.Model):
         fixLenQuote = f"{slugify(self.quote[:30])}-{self.quote_id}"
         self.quote_id = fixLenQuote
         super().save(*args, **kwargs)
+        
     def __str__(self):
         return self.quote
 
