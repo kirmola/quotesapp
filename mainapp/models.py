@@ -10,8 +10,8 @@ from django.utils.text import slugify
 class Quote(models.Model):
 
     quote = models.CharField(_("Quote"), max_length=250)
-    author = models.ForeignKey("mainapp.Author", verbose_name=_("Author"), on_delete=models.CASCADE)
-    topics = models.ForeignKey("mainapp.Topic", verbose_name=_("Topics/Tags"), on_delete=models.CASCADE)
+    author = models.ForeignKey("mainapp.Author", verbose_name=_("Author"), on_delete=models.CASCADE, to_field="author_slug")
+    topics = models.ForeignKey("mainapp.Topic", verbose_name=_("Topics/Tags"), on_delete=models.CASCADE, to_field="topic_slug")
     quote_id = ShortUUIDField(length=6, max_length=45, primary_key=True, alphabet="abcdefghijklmnopqrstuvwxyz123456790", editable=False)
 
     
