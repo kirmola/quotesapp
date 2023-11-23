@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .logics import *
 from django.core.paginator import Paginator
-from string import ascii_uppercase
 
 # Create your views here.
 
@@ -22,7 +21,6 @@ def authors(request, author_name=None):
         return render(request, "authors/index.html", {
             "data": parsedData,
             "paginator":paginator,
-            # "alphadata": [i for i in ascii_uppercase]
         })
 
 
