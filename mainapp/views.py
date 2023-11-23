@@ -46,5 +46,11 @@ def topics(request, topic_name=None):
         })
 
 
-def quote(self):
-    pass
+def quote(request, quote_url):
+    data = getQuote(quote_url)
+    fetched_quote = data.quote
+    quote_author = data.author
+    return render(request, "quote.html", {
+        "quote":fetched_quote,
+        "author":quote_author
+    })

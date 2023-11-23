@@ -35,7 +35,7 @@ class Author(models.Model):
 
     author = models.CharField(_("Author: "), max_length=50, unique=True)
     author_slug = AutoSlugField(editable=False, populate_from="author", default=None, unique=True)
-
+    
     class Meta:
         verbose_name = _("Author")
         verbose_name_plural = _("Authors")
