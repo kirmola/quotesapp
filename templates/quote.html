@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{% endblock title %}
+{% block title %}{{author}} | {{quote|truncatewords:6}}{% endblock title %}
+{% block meta_desc %}{{quote|truncatechars:150}}{% endblock meta_desc %}
 {% block base_content %}
 
 {{quote}}
