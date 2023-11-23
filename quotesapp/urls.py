@@ -23,7 +23,6 @@ sitemaps={
     "quote":QuoteSitemap,
     "topic":TopicSitemap,
     "author":AuthorSitemap,
-    # "index":SitemapIndex
 }
 
 urlpatterns = [
