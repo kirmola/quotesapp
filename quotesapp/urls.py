@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from quotesapp import views
-from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps.views import sitemap, index
 from mainapp.sitemaps import *
 sitemaps={
-    # "quote":QuoteSitemap,
-    # "topic":TopicSitemap,
-    # "author":AuthorSitemap,
+    "quote":QuoteSitemap,
+    "topic":TopicSitemap,
+    "author":AuthorSitemap,
     # "index":SitemapIndex
 }
 
@@ -30,5 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("mainapp.urls")),
     path("robots.txt", views.robots, name="robots"),
-    path("sitemap.xml", sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap")
+    path("sitemap.xml", index, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.index"),
+    path("sitemap-<section>.xml", sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
 ]

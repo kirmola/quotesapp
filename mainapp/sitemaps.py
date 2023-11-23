@@ -18,10 +18,10 @@ class TopicSitemap(Sitemap):
         return Topic.objects.all()
     
 
-# class SitemapIndex(Sitemap):
+class SitemapIndex(Sitemap):
     
-#     def items(self):
-#         return [Quote.objects.all(), Author.objects.all(), Topic.objects.all()]
+    def items(self):
+        return [Quote.objects.all(), Author.objects.all(), Topic.objects.all()]
     
-#     def location(self, item):
-#         return item.get_absolute_url()
+    def location(self, item):
+        return item.get_absolute_url()
