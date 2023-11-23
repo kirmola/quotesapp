@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %}</title>
+    <title>{% block title %}Base Homepage{% endblock title %}</title>
     {% tailwind_css %}
     <script defer src="{% static "js/main.js" %}"></script>
+    <meta name="description" content="{% block meta_desc %}{% endblock meta_desc %}">
     
 </head>
 <body>
     {% include "layout/header.html" %}
     <main class="max-w-7xl mx-auto mt-10 mb-20 px-3 md:px-1">
-        {% block content %}{% endblock content %}
+        {% block base_content %}{% endblock base_content %}
     </main>
     {% include "layout/footer.html" %}
 </body>

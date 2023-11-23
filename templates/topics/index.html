@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% block content %}
+{% block title %}Topics{% endblock title %}
+{% block meta_desc %}Explore a vast collection of quotes organized by topic, featuring words of wisdom from renowned authors, historical figures, and everyday people.{% endblock meta_desc %}
+{% block base_content %}
 
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -16,4 +18,4 @@
 {% for i in paginator %}
 {{i}}
 {% endfor %}
-{% endblock content %}
+{% endblock base_content %}
