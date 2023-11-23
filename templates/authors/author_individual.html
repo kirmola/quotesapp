@@ -4,5 +4,7 @@
 {% block base_content %}
 all quotes by {{author_name}}
 -----
-
+{% for each in all_quotes %}
+{{each|linebreaks}}
+{% endfor %}
 {% endblock base_content %}

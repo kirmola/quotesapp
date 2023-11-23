@@ -15,3 +15,7 @@ def getAllTopics():
 def getQuote(quote_url):
     queryset = get_object_or_404(Quote, quote_id=quote_url)
     return queryset
+
+def getAllQuotesByAuthor(author_name):
+    queryset = Quote.objects.filter(author=author_name)
+    return queryset

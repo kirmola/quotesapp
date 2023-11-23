@@ -13,8 +13,11 @@ def authors(request, author_name=None):
     reference_dict = {v:k for k,v in data}
     object_list = {i[1] for i in data}
     if author_name in object_list:
+        allQuotesByAuthor = getAllQuotesByAuthor(author_name)
+        print(allQuotesByAuthor)
         return render(request, "authors/author_individual.html", {
-            "author_name":reference_dict[author_name]
+            "author_name":reference_dict[author_name],
+            "all_quotes":allQuotesByAuthor
         })
     else:
         parsedData = {}
