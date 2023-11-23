@@ -20,7 +20,7 @@ class Quote(models.Model):
         verbose_name_plural = _("Quotes")
 
     def save(self, *args, **kwargs):
-        fixLenQuote = f"{slugify(self.quote[:30])}-{self.quote_id}"
+        fixLenQuote = f"{slugify(self.quote.split()[:4])}-{self.quote_id}"
         self.quote_id = fixLenQuote
         super().save(*args, **kwargs)
         
