@@ -28,7 +28,7 @@ class Quote(models.Model):
         return self.quote
 
     def get_absolute_url(self):
-        return reverse("Quote_detail", kwargs={"pk": self.pk})
+        return reverse("Quote_detail", kwargs={"quote_url": self.quote_id})
 
 
 class Author(models.Model):
@@ -44,7 +44,7 @@ class Author(models.Model):
         return self.author
 
     def get_absolute_url(self):
-        return reverse("Author_detail", kwargs={"pk": self.pk})
+        return reverse("Author_detail", kwargs={"author_name": self.author_slug})
 
 
 class Topic(models.Model):
@@ -60,4 +60,4 @@ class Topic(models.Model):
         return self.topic
 
     def get_absolute_url(self):
-        return reverse("Topic_detail", kwargs={"pk": self.pk})
+        return reverse("Topic_detail", kwargs={"topic_name": self.topic_slug})

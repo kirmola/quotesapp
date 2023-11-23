@@ -44,3 +44,7 @@ def topics(request, topic_name=None):
             "data": parsedData,
             "paginator":paginator
         })
+
+
+def quote(self):
+    pass
