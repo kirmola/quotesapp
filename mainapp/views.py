@@ -4,6 +4,9 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
+def home(request):
+    return render(request, "homepage.html")
+
 
 def authors(request, author_name=None):
     data = getAllAuthors()

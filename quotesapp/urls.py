@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from quotesapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("mainapp.urls"))
+    path("", include("mainapp.urls")),
+    path("robots.txt", views.robots, name="robots")
+
 ]
