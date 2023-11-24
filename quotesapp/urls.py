@@ -19,16 +19,23 @@ from django.urls import path, include
 from quotesapp import views
 from django.contrib.sitemaps.views import sitemap, index
 from mainapp.sitemaps import *
+from django.conf.urls.i18n import i18n_patterns
+
+
 sitemaps={
     "quote":QuoteSitemap,
     "topic":TopicSitemap,
     "author":AuthorSitemap,
 }
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("mainapp.urls")),
     path("robots.txt", views.robots, name="robots"),
+    path('admin/', admin.site.urls),
     path("sitemap.xml", index, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.index"),
     path("sitemap-<section>.xml", sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
 ]
+
+urlpatterns += i18n_patterns(
+    path("", include("mainapp.urls")),
+)
