@@ -1,8 +1,11 @@
 {% load i18n %}
+{% load localeurl %}
 {% get_available_languages as LANGUAGES %}
+{% get_current_language as current_language %}
+
 <!DOCTYPE html>
+<html lang="{{current_language}}">
 {% load static tailwind_tags %}
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +14,7 @@
     <script defer src="{% static "js/main.js" %}"></script>
     <meta name="description" content="{% block meta_desc %}{% endblock meta_desc %}">
     {% for lang in LANGUAGES %}
-    <link rel="alternate" hreflang="{{ lang.0 }}" href="#"/>
+    <link rel="alternate" hreflang="{{ lang.0 }}" href="{% translateURL request.path lang.0 %}"/>
     {% endfor %}
     
 </head>
