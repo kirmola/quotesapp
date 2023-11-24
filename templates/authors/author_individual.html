@@ -1,5 +1,6 @@
 {% extends "authors/index.html" %}
-{% block title %}Quotes by {{author_name}}{% endblock title %}
+{% load i18n %}
+{% block title %}{% blocktranslate %}Quotes by {{author_name}}{% endblocktranslate %}{% endblock title %}
 {% block meta_desc %}Discover the essence of {{author_name}}'s philosophy and insights through a curated selection of memorable quotes.{% endblock meta_desc %}
 {% block base_content %}
 all quotes by {{author_name}}

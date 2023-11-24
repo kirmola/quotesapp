@@ -14,7 +14,6 @@ def authors(request, author_name=None):
     object_list = {i[1] for i in data}
     if author_name in object_list:
         allQuotesByAuthor = getAllQuotesByAuthor(author_name)
-        print(allQuotesByAuthor)
         return render(request, "authors/author_individual.html", {
             "author_name":reference_dict[author_name],
             "all_quotes":allQuotesByAuthor
