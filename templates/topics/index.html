@@ -1,6 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Topics{% endblock title %}
-{% block meta_desc %}Explore a vast collection of quotes organized by topic, featuring words of wisdom from renowned authors, historical figures, and everyday people.{% endblock meta_desc %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Topics" %}
+{% endblock title %}
+{% block meta_desc %}
+    {% trans "Explore a vast collection of quotes organized by topic, featuring words of wisdom from renowned authors, historical figures, and everyday people." %}
+{% endblock meta_desc %}
+
 {% block base_content %}
 
 

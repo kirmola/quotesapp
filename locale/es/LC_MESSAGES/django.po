@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 09:55+0000\n"
+"POT-Creation-Date: 2023-11-24 10:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,8 +70,17 @@ msgstr ""
 "atemporales queresuena con la experiencia humana."
 
 #: templates/layout/header.html:23 templates/layout/header.html:70
+#: templates/topics/index.html:5
 msgid "Topics"
 msgstr "Temas"
+
+#: templates/topics/index.html:8
+msgid ""
+"Explore a vast collection of quotes organized by topic, featuring words of "
+"wisdom from renowned authors, historical figures, and everyday people."
+msgstr ""
+"Explore una amplia colección de citas organizadas por tema, con palabras de"
+"sabiduría de autores de renombre, personajes históricos y gente común."
 
 #: templates/topics/topic_individual.html:5
 #, python-format
