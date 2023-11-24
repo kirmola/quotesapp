@@ -1,4 +1,5 @@
 {% load i18n %}
+{% get_available_languages as LANGUAGES %}
 <!DOCTYPE html>
 {% load static tailwind_tags %}
 <html lang="en">
@@ -9,6 +10,9 @@
     {% tailwind_css %}
     <script defer src="{% static "js/main.js" %}"></script>
     <meta name="description" content="{% block meta_desc %}{% endblock meta_desc %}">
+    {% for lang in LANGUAGES %}
+    <link rel="alternate" hreflang="{{ lang.0 }}" href="#"/>
+    {% endfor %}
     
 </head>
 <body>
