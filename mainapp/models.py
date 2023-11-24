@@ -9,15 +9,15 @@ from django.utils.text import slugify
 
 class Quote(models.Model):
 
-    quote = models.CharField(_("Quote"), max_length=250)
-    author = models.ForeignKey("mainapp.Author", verbose_name=_("Author"), on_delete=models.CASCADE, to_field="author_slug")
-    topics = models.ForeignKey("mainapp.Topic", verbose_name=_("Topics/Tags"), on_delete=models.CASCADE, to_field="topic_slug")
+    quote = models.CharField(verbose_name="Quote", max_length=250)
+    author = models.ForeignKey("mainapp.Author", verbose_name="Author", on_delete=models.CASCADE, to_field="author_slug")
+    topics = models.ForeignKey("mainapp.Topic", verbose_name="Topics/Tags", on_delete=models.CASCADE, to_field="topic_slug")
     quote_id = ShortUUIDField(length=6, max_length=45, primary_key=True, alphabet="abcdefghijklmnopqrstuvwxyz123456790", editable=False)
 
     
     class Meta:
-        verbose_name = _("Quote")
-        verbose_name_plural = _("Quotes")
+        verbose_name = "Quote"
+        verbose_name_plural = "Quotes"
 
     def save(self, *args, **kwargs):
         fixLenQuote = f"{slugify(self.quote.split()[:4])}-{self.quote_id}"
@@ -33,12 +33,12 @@ class Quote(models.Model):
 
 class Author(models.Model):
 
-    author = models.CharField(_("Author: "), max_length=50, unique=True)
+    author = models.CharField(verbose_name="Author", max_length=50, unique=True)
     author_slug = AutoSlugField(editable=False, populate_from="author", default=None, unique=True)
     
     class Meta:
-        verbose_name = _("Author")
-        verbose_name_plural = _("Authors")
+        verbose_name = "Author"
+        verbose_name_plural = "Authors"
 
     def __str__(self):
         return self.author
@@ -49,12 +49,12 @@ class Author(models.Model):
 
 class Topic(models.Model):
 
-    topic = models.CharField(_("Topics/Tags: "), max_length=50, default=None, unique=True)
+    topic = models.CharField("Topics/Tags: ", max_length=50, default=None, unique=True)
     topic_slug = AutoSlugField(editable=False, populate_from="topic", default=None, unique=True)
 
     class Meta:
-        verbose_name = _("Topic")
-        verbose_name_plural = _("Topics")
+        verbose_name = "Topic"
+        verbose_name_plural = "Topics"
 
     def __str__(self):
         return self.topic
