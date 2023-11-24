@@ -1,3 +1,10 @@
 {% extends "topics/index.html" %}
-{% block title %}{{topic_name}} Quotes{% endblock title %}
-{% block meta_desc %}Immerse yourself in the beauty of words that capture the essence of {{topic_name}}, offering moments of reflection and motivation{% endblock meta_desc %}
+{% load i18n %}
+
+{% block title %}
+    {% blocktranslate %}{{topic_name}} Quotes{% endblocktranslate %}
+{% endblock title %}
+
+{% block meta_desc %}
+    {% blocktranslate %}Immerse yourself in the beauty of words that capture the essence of {{topic_name}}, offering moments of reflection and motivation{% endblocktranslate %}
+{% endblock meta_desc %}

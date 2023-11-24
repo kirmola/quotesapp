@@ -1,3 +1,4 @@
+{% load i18n %}
 <header class="z-30 w-full px-2 py-4 bg-white sm:px-4">
     <div class="flex items-center justify-between mx-auto max-w-7xl">
       <a href="/" title="Home" class="flex items-center">
@@ -19,8 +20,8 @@
       </a>
       <div class="flex items-center space-x-1">
         <div class="hidden space-x-1 md:inline-flex">
-          <a href="{% url "topics" %}" class="btn btn-sm btn-link">Topics</a>
-          <a href="{% url "authors" %}" class="btn btn-sm btn-link">Authors</a>
+          <a href="{% url "topics" %}" class="btn btn-sm btn-link">{% trans "Topics" %}</a>
+          <a href="{% url "authors" %}" class="btn btn-sm btn-link">{% trans "Authors" %}</a>
           {% comment %} <a href="#" class="btn btn-sm btn-link">Blog</a>
           <a href="#" class="btn btn-sm btn-link">Company</a>
           <a href="#" class="btn btn-sm btn-link">Sign in</a> {% endcomment %}
@@ -64,8 +65,8 @@
               </svg>
               <span class="sr-only">Close Menu</span>
             </button>
-            <a href="{% url "topics" %}" class="w-full btn btn-link">Topics</a>
-            <a href="{% url "authors" %}" class="w-full btn btn-link">Authors</a>
+            <a href="{% url "topics" %}" class="w-full btn btn-link">{% trans "Topics" %}</a>
+            <a href="{% url "authors" %}" class="w-full btn btn-link">{% trans "Authors" %}</a>
             {% comment %} <a href="#" class="w-full btn btn-link">Blog</a>
             <a href="#" class="w-full btn btn-link">Company</a>
             <a href="#" class="w-full btn btn-link">Sign in</a> {% endcomment %}
