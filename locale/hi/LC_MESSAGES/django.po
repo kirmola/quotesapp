@@ -53,6 +53,7 @@ msgid ""
 "Discover the essence of %(author_name)s's philospohy and insights through a "
 "curated selection of memorable quotes."
 msgstr ""
+"यादगार उद्धरणों के क्यूरेटेड चयन के माध्यम से %(author_name)s के दर्शन और अंतर्दृष्टि का सार खोजें।"
 
 #: templates/authors/index.html:3 templates/authors/index.html:13
 #: templates/layout/header.html:24 templates/layout/header.html:71
