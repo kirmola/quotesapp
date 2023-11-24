@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 14:22+0000\n"
+"POT-Creation-Date: 2023-11-24 16:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,8 @@ msgid ""
 "Discover the essence of %(author_name)s's philospohy and insights through a "
 "curated selection of memorable quotes."
 msgstr ""
-"यादगार उद्धरणों के क्यूरेटेड चयन के माध्यम से %(author_name)s के दर्शन और अंतर्दृष्टि का सार खोजें।"
+"यादगार उद्धरणों के क्यूरेटेड चयन के माध्यम से %(author_name)s के दर्शन और अंतर्दृष्टि का सार "
+"खोजें।"
 
 #: templates/authors/index.html:3 templates/authors/index.html:13
 #: templates/layout/header.html:24 templates/layout/header.html:71
@@ -67,6 +68,18 @@ msgid ""
 msgstr ""
 "साहित्यिक दिग्गजों के दिमाग में उतरें और उन कालजयी उद्धरणों की खोज करें जो मानवीय अनुभव के "
 "साथ प्रतिध्वनित हों।"
+
+#: templates/homepage.html:3
+msgid "Discover Inspirational Quotes"
+msgstr "प्रेरणादायक उद्धरण खोजें"
+
+#: templates/homepage.html:4
+msgid ""
+"Explore profound insights and timeless wisdom through our curated collection "
+"of quotes from renowned personalities worldwide."
+msgstr ""
+"दुनिया भर की प्रसिद्ध हस्तियों के उद्धरणों के हमारे संग्रहित संग्रह के "
+"माध्यम से गहन अंतर्दृष्टि और कालातीत ज्ञान का अन्वेषण करें।"
 
 #: templates/layout/header.html:23 templates/layout/header.html:70
 #: templates/topics/index.html:4
