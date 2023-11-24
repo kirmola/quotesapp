@@ -1,13 +1,19 @@
 {% extends "base.html" %}
-{% block title %}Authors{% endblock title %}
-{% block meta_desc %}Delve into the minds of literary giants and discover timeless quotes that resonate with the human experience.{% endblock meta_desc %}
+{% load i18n %}
+{% block title %}
+    {% trans "Authors" %}
+{% endblock title %}
+
+{% block meta_desc %}
+    {% trans "Delve into the minds of literary giants and discover timeless quotes that resonate with the human experience." %}
+{% endblock meta_desc %}
 {% block base_content %}
 
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
     {% for each in data.items %}
     <ul class="list list-flush">
-        {{each.0| title}} Authors
+        {{each.0| title}} {% trans "Authors" %}
         {% for title,url in each.1.items %}
         <li class="list-item"><a href="{{url}}/">{{title|title}}</a></li>
         {% endfor %}
