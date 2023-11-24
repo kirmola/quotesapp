@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 16:15+0000\n"
+"POT-Creation-Date: 2023-11-24 16:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,8 +78,12 @@ msgid ""
 "Explore profound insights and timeless wisdom through our curated collection "
 "of quotes from renowned personalities worldwide."
 msgstr ""
-"दुनिया भर की प्रसिद्ध हस्तियों के उद्धरणों के हमारे संग्रहित संग्रह के "
-"माध्यम से गहन अंतर्दृष्टि और कालातीत ज्ञान का अन्वेषण करें।"
+"दुनिया भर की प्रसिद्ध हस्तियों के उद्धरणों के हमारे संग्रहित संग्रह के माध्यम से गहन अंतर्दृष्टि "
+"और कालातीत ज्ञान का अन्वेषण करें।"
+
+#: templates/layout/footer.html:3
+msgid "Made with Love in India."
+msgstr ""
 
 #: templates/layout/header.html:23 templates/layout/header.html:70
 #: templates/topics/index.html:4

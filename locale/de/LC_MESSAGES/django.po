@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 16:15+0000\n"
+"POT-Creation-Date: 2023-11-24 16:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,10 +78,13 @@ msgid ""
 "Explore profound insights and timeless wisdom through our curated collection "
 "of quotes from renowned personalities worldwide."
 msgstr ""
-"Entdecken Sie tiefgreifende Erkenntnisse "
-"und zeitlose Weisheit durch unsere kuratierte "
-"Sammlung von Zitaten renommierter Persönlichkeiten "
-"aus der ganzen Welt."
+"Entdecken Sie tiefgreifende Erkenntnisse und zeitlose Weisheit durch unsere "
+"kuratierte Sammlung von Zitaten renommierter Persönlichkeiten aus der ganzen "
+"Welt."
+
+#: templates/layout/footer.html:3
+msgid "Made with Love in India."
+msgstr "Mit Liebe in Indien hergestellt."
 
 #: templates/layout/header.html:23 templates/layout/header.html:70
 #: templates/topics/index.html:4
