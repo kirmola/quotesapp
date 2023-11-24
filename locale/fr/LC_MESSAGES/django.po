@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 08:38+0000\n"
+"POT-Creation-Date: 2023-11-24 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,16 @@ msgstr "Espagnol"
 msgid "Hindi"
 msgstr "hindi"
 
-#: templates/authors/author_individual.html:3
+#: templates/authors/author_individual.html:5
 #, python-format
 msgid "Quotes by %(author_name)s"
 msgstr "Citations de %(author_name)s"
+
+#: templates/authors/author_individual.html:9
+#, python-format
+msgid ""
+"Discover the essence of %(author_name)s's philospohy and insights through a "
+"curated selection of memorable quotes."
+msgstr ""
+"Découvrez l'essence de la philosophie et des idées de %(author_name)s à travers un "
+"une sélection organisée de citations mémorables."
