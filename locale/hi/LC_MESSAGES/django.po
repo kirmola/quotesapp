@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 14:03+0000\n"
+"POT-Creation-Date: 2023-11-24 14:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: quotesapp/base_settings.py:123
 msgid "English"
 msgstr "अंग्रेज़ी"
@@ -41,59 +42,54 @@ msgstr "स्पैनिश"
 msgid "Hindi"
 msgstr "हिंदी"
 
-#: templates/authors/author_individual.html:5
+#: templates/authors/author_individual.html:4
 #, python-format
 msgid "Quotes by %(author_name)s"
-msgstr "%(author_name)s द्वारा उद्धरण"
+msgstr "%(author_name)s द्वारा दिए गए उद्धरण"
 
-#: templates/authors/author_individual.html:9
+#: templates/authors/author_individual.html:6
 #, python-format
 msgid ""
-"यादगार उद्धरणों के क्यूरेटेड चयन के माध्यम से %(author_name)s "
-"के दर्शन और अंतर्दृष्टि का सार खोजें।"
+"Discover the essence of %(author_name)s's philospohy and insights through a "
+"curated selection of memorable quotes."
 msgstr ""
 
-#: templates/authors/index.html:4 templates/authors/index.html:16
+#: templates/authors/index.html:3 templates/authors/index.html:13
 #: templates/layout/header.html:24 templates/layout/header.html:71
 msgid "Authors"
 msgstr "लेखक"
 
-#: templates/authors/index.html:8
+#: templates/authors/index.html:5
 msgid ""
 "Delve into the minds of literary giants and discover timeless quotes that "
 "resonate with the human experience."
 msgstr ""
-"साहित्यिक दिग्गजों के दिमाग में उतरें और "
-"उन कालजयी उद्धरणों की खोज करें जो "
-"मानवीय अनुभव के साथ प्रतिध्वनित हों।"
+"साहित्यिक दिग्गजों के दिमाग में उतरें और उन कालजयी उद्धरणों की खोज करें जो मानवीय अनुभव के "
+"साथ प्रतिध्वनित हों।"
 
 #: templates/layout/header.html:23 templates/layout/header.html:70
-#: templates/topics/index.html:5
+#: templates/topics/index.html:4
 msgid "Topics"
 msgstr "विषय"
 
-#: templates/topics/index.html:8
+#: templates/topics/index.html:6
 msgid ""
 "Explore a vast collection of quotes organized by topic, featuring words of "
 "wisdom from renowned authors, historical figures, and everyday people."
 msgstr ""
-"विषय के आधार पर व्यवस्थित उद्धरणों के एक "
-"विशाल संग्रह का अन्वेषण करें,"
-" जिसमें प्रसिद्ध लेखकों, ऐतिहासिक शख्सियतों और "
-"रोजमर्रा के लोगों के ज्ञान के शब्द शामिल हैं।"
+"विषय के आधार पर व्यवस्थित उद्धरणों के एक विशाल संग्रह का अन्वेषण करें, जिसमें प्रसिद्ध लेखकों, "
+"ऐतिहासिक शख्सियतों और रोजमर्रा के लोगों के ज्ञान के शब्द शामिल हैं।"
 
-#: templates/topics/topic_individual.html:5
+#: templates/topics/topic_individual.html:4
 #, python-format
 msgid "%(topic_name)s Quotes"
-msgstr "%(topic_name)s उद्धरण"
+msgstr "%(topic_name)s पर उद्धरण"
 
-
-#: templates/topics/topic_individual.html:9
+#: templates/topics/topic_individual.html:6
 #, python-format
 msgid ""
 "Immerse yourself in the beauty of words that capture the essence of "
 "%(topic_name)s, offering moments of reflection and motivation"
 msgstr ""
-"अपने आप को उन शब्दों की सुंदरता में डुबोएं जो "
-"%(topic_name)s के सार को पकड़ते हैं, "
-"प्रतिबिंब और प्रेरणा के क्षण प्रदान करते हैं"
+"अपने आप को उन शब्दों की सुंदरता में डुबोएं जो %(topic_name)s के सार को पकड़ते हैं, प्रतिबिंब "
+"और प्रेरणा के क्षण प्रदान करते हैं"
