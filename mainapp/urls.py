@@ -1,6 +1,9 @@
 from django.urls import path, include
 from . import views
 from django.conf import settings
+from django.conf.urls import handler404
+
+handler404 = "mainapp.views.custom404"
 
 urlpatterns = [
     path("", views.home, name="home"),

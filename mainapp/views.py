@@ -89,3 +89,7 @@ def contact(request):
 
 def thanks_for_contacting(request):
     return render(request, "ack.html")
+
+
+def custom404(request, exception):
+    return render(request, "404.html", status=404)
