@@ -17,5 +17,6 @@ def getQuote(quote_url):
     return queryset
 
 def getAllQuotesByAuthor(author_name):
-    queryset = Quote.objects.filter(author=author_name)
+    queryset = Quote.objects.filter(author=author_name).values_list("quote", "quote_id")
+    print(queryset)
     return queryset

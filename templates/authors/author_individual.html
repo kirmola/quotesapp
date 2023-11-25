@@ -9,6 +9,6 @@
 all quotes by {{author_name}}
 -----
 {% for each in all_quotes %}
-{{each|linebreaks}}
+<a href="{% url "Quote_detail" quote_url=each.1 %}">{{each.0|linebreaks}}</a>
 {% endfor %}
 {% endblock base_content %}
