@@ -15,11 +15,11 @@ def getAllAuthors():
 
 
 def getAllTopics():
-    queryset = []
+    query = Q()
     for each in ascii_lowercase:
-        query = Q(topic_slug__startswith=each)
-        data = Topic.objects.filter(query).values_list("topic", "topic_slug")[:10]
-        queryset.extend(data)
+        query |= Q(topic_slug__startswith=each)
+    data = Topic.objects.filter(query)
+    queryset = data.values_list("topic", "topic_slug")
     return queryset
 
 
