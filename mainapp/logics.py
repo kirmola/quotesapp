@@ -1,15 +1,25 @@
 from .models import *
 from string import ascii_lowercase
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
+from string import ascii_lowercase
+
 
 def getAllAuthors():
-    queryset = Author.objects.values_list("author", "author_slug")
+    queryset = []
+    for each in ascii_lowercase:
+        query = Q(author_slug__startswith=each)
+        data  = Author.objects.filter(query).values_list("author", "author_slug")[:10]
+        queryset.extend(data)
     return queryset
 
 
 def getAllTopics():
-    queryset = Topic.objects.values_list("topic", "topic_slug")
-
+    queryset = []
+    for each in ascii_lowercase:
+        query = Q(topic_slug__startswith=each)
+        data = Topic.objects.filter(query).values_list("topic", "topic_slug")[:10]
+        queryset.extend(data)
     return queryset
 
 
