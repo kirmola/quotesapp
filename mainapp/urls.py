@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
-
+from django.conf import settings
 
 urlpatterns = [
     path("", views.home, name="home"),
@@ -12,3 +12,9 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("thanks-for-contacting/", views.thanks_for_contacting, name="thanks_for_contacting"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]
+    
