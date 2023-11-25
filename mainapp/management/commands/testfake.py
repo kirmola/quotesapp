@@ -16,6 +16,8 @@ class Command(BaseCommand):
             topic_name = fake.word()
             topic_instance, _ = Topic.objects.get_or_create(topic=topic_name)
 
+            email = fake.email()
+            SimpleContact.objects.get_or_create(name=author_name, email=email, problem="problem_in_other", elaboration=fake.sentence(nb_words=100))
             # Create a Quote instance
             quote_text = fake.sentence(nb_words=30)
             quote_instance = Quote.objects.create(quote=quote_text, author=author_instance, topics=topic_instance)
