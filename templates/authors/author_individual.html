@@ -6,9 +6,15 @@
 {% block meta_desc %}{% blocktranslate %}Discover the essence of {{author_name}}'s philospohy and insights through a curated selection of memorable quotes.{% endblocktranslate %}{% endblock meta_desc %}
 
 {% block base_content %}
-all quotes by {{author_name}}
------
-{% for each in all_quotes %}
-<a href="{% url "Quote_detail" quote_url=each.1 %}">{{each.0|linebreaks}}</a>
-{% endfor %}
+
+<div class="grid grid-cols-1 gap-3 md:grid-cols-3">
+        
+    {% for each in all_quotes %}
+        <a class="card" href="{% url "Quote_detail" quote_url=each.1 %}">
+            <div class="card-body">
+                <p>{{each.0}}</p>
+            </div>
+        </a>
+    {% endfor %}
+</div>
 {% endblock base_content %}

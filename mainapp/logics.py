@@ -33,5 +33,4 @@ def getAllQuotesByAuthor(author_name):
 
 def getQuotesByTopic(topic_name):
     queryset = Quote.objects.filter(topics_id=topic_name).values("quote", "quote_id")
-    print(queryset)
     return queryset
