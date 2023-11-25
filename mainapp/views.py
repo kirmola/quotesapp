@@ -50,7 +50,6 @@ def topics(request, topic_name=None):
         parsedData = {}
         for each in ascii_lowercase:
             parsedData[each] = {k:v for k,v in data if str(v)[0]==each}
-        print(parsedData)
         paginator = Paginator(data, 50)
         return render(request, "topics/index.html", {
             "data": parsedData,

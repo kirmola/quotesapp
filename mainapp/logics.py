@@ -9,6 +9,7 @@ def getAllAuthors():
 
 def getAllTopics():
     queryset = Topic.objects.values_list("topic", "topic_slug")
+
     return queryset
 
 
@@ -18,5 +19,4 @@ def getQuote(quote_url):
 
 def getAllQuotesByAuthor(author_name):
     queryset = Quote.objects.filter(author=author_name).values_list("quote", "quote_id")
-    print(queryset)
     return queryset

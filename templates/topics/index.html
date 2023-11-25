@@ -8,12 +8,13 @@
 {% block base_content %}
 
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+<div class="grid grid-cols-1 md:grid-cols-6 gap-4">
     {% for each in data.items %}
     <ul class="list list-flush">
-        {{each.0| title}}
+        <div class="text-center md:text-left font-semibold">{{each.0| title}}</div>
         {% for title,url in each.1.items %}
-        <li class="list-item"><a href="{{url}}/">{{title|title}}</a></li>
+        <li class="list-item md:p-2"><a href="{{url}}/">{{title|title}}</a></li>
         {% endfor %}
     </ul>
     {% endfor %}
