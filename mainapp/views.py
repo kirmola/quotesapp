@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .logics import *
 from django.core.paginator import Paginator
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect, HttpResponse
+from .forms import SimpleContactForm
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 
@@ -65,3 +67,23 @@ def quote(request, quote_url):
         "quote":fetched_quote,
         "author":quote_author
     })
+
+@require_http_methods(["GET", "POST"])
+def contact(request):
+
+    method = request.method
+
+    match(method):
+        case "GET":
+            form = SimpleContactForm()
+            return render(request, "pages/contact.html", {
+                "form":form,
+            })
+        case "POST":
+            formData = SimpleContactForm(request.POST)
+            ack = formData.save()
+            return HttpResponseRedirect("/thanks-for-contacting/")
+
+
+def thanks_for_contacting(request):
+    return render(request, "ack.html")

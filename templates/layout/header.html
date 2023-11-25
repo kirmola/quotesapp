@@ -18,6 +18,7 @@
         </svg>
         <span class="sr-only">Home</span>
       </a>
+      {% comment %} Desktop Menu {% endcomment %}
       <div class="flex items-center space-x-1">
         <div class="hidden space-x-1 md:inline-flex">
           <a href="{% url "topics" %}" class="btn btn-sm btn-link">{% trans "Topics" %}</a>
@@ -25,6 +26,23 @@
           {% comment %} <a href="#" class="btn btn-sm btn-link">Blog</a>
           <a href="#" class="btn btn-sm btn-link">Company</a>
           <a href="#" class="btn btn-sm btn-link">Sign in</a> {% endcomment %}
+          
+<div class="flex space-x-2">
+  <div x-data="dropdown()">
+    <button class="btn btn-outline-primary btn-sm" id="open-color-menu-small" x-spread="trigger">
+      About
+      <svg class="dropdown-arrow" :class="{ 'rotate-180': open }" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+    <div class="dropdown-list" id="color-menu-small" x-spread="dropdown" x-cloak>
+      <p class="dropdown-header">Pages</p>
+      <a href="#" class="dropdown-item">Terms</a>
+      <a href="#" class="dropdown-item">Privacy</a>
+      <div class="dropdown-divide"></div>
+      <a href="{% url "contact" %}" class="dropdown-item">Contact</a>
+    </div>
+  </div>
+</div>
+
         </div>
         {% comment %} <a href="#" class="btn btn-sm btn-primary">Get Started</a> {% endcomment %}
         <div class="inline-flex md:hidden" x-data="{ open: false }">
@@ -46,6 +64,7 @@
             </svg>
             <span class="sr-only">Open Menu</span>
           </button>
+          {% comment %} Mobile Menu {% endcomment %}
           <div class="absolute top-0 left-0 right-0 z-50 flex flex-col p-2 pb-4 m-2 space-y-3 bg-white rounded shadow" x-show.transition="open" @click.away="open = false" x-cloak>
             <button class="self-end flex-none px-2 ml-2 btn btn-link btn-icon" @click="open = false">
               <svg
@@ -67,8 +86,8 @@
             </button>
             <a href="{% url "topics" %}" class="w-full btn btn-link">{% trans "Topics" %}</a>
             <a href="{% url "authors" %}" class="w-full btn btn-link">{% trans "Authors" %}</a>
-            {% comment %} <a href="#" class="w-full btn btn-link">Blog</a>
-            <a href="#" class="w-full btn btn-link">Company</a>
+            <a href="{% url "contact" %}" class="w-full btn btn-link">Contact</a>
+            {% comment %} <a href="#" class="w-full btn btn-link">Company</a>
             <a href="#" class="w-full btn btn-link">Sign in</a> {% endcomment %}
           </div>
         </div>

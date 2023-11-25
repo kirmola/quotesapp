@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-24 16:34+0000\n"
+"POT-Creation-Date: 2023-11-25 03:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 "travers un une sélection organisée de citations mémorables."
 
 #: templates/authors/index.html:3 templates/authors/index.html:13
-#: templates/layout/header.html:24 templates/layout/header.html:71
+#: templates/layout/header.html:26 templates/layout/header.html:92
 msgid "Authors"
 msgstr "Auteurs"
 
@@ -85,10 +85,22 @@ msgstr ""
 msgid "Made with Love in India."
 msgstr "Fabriqué avec amour en Inde."
 
-#: templates/layout/header.html:23 templates/layout/header.html:70
+#: templates/layout/header.html:25 templates/layout/header.html:91
 #: templates/topics/index.html:4
 msgid "Topics"
 msgstr "Sujets"
+
+#: templates/pages/contact.html:5
+msgid "Contact Us"
+msgstr "Contactez-nous"
+
+#: templates/pages/contact.html:7
+msgid ""
+"If you are having any problem on/regarding this site, just fill this form "
+"and we will be in touch asap."
+msgstr ""
+"Si vous rencontrez un problème sur/concernant ce site, remplissez "
+"simplement ce formulaire et nous vous contacterons dans les plus brefs délais."
 
 #: templates/topics/index.html:6
 msgid ""

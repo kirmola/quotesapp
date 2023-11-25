@@ -61,3 +61,28 @@ class Topic(models.Model):
 
     def get_absolute_url(self):
         return reverse("Topic_detail", kwargs={"topic_name": self.topic_slug})
+
+
+class SimpleContact(models.Model):
+
+    choices = [
+        ("problem_in_website", "Regarding Website"),
+        ("problem_in_quote", "Regarding Quote"),
+        ("problem_in_author", "Regarding Author"),
+        ("problem_in_other", "Anything Else"),
+    ]
+
+    name = models.CharField(verbose_name="Name", max_length=50)
+    email = models.EmailField(verbose_name="Enter Email", max_length=254)
+    problem = models.CharField(verbose_name="What is the Problem here",choices=choices, max_length=50)
+    elaboration = models.TextField(verbose_name="Description")
+
+    class Meta:
+        verbose_name = _("SimpleContact")
+        verbose_name_plural = _("SimpleContacts")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("SimpleContact_detail", kwargs={"pk": self.pk})

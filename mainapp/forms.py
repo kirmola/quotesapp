@@ -1,5 +1,8 @@
 from django import forms
+from .models import SimpleContact
 
-class SimpleContactForm(forms.Form):
-    your_name = forms.CharField(label="Name", max_length=30, required=True)
-    email = forms.EmailField(label="Email", required=False)
+class SimpleContactForm(forms.ModelForm):
+    
+    class Meta:
+        model = SimpleContact
+        fields = '__all__'

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Contact Us" %}{% endblock title %}
+
+{% block meta_desc %}{% trans "If you are having any problem on/regarding this site, just fill this form and we will be in touch asap." %}{% endblock meta_desc %}
+
+{% block base_content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-outline-primary">Submit Entry</button>
+</form>
+
+{% endblock base_content %}
