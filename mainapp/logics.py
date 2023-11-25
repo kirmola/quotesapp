@@ -30,3 +30,8 @@ def getQuote(quote_url):
 def getAllQuotesByAuthor(author_name):
     queryset = Quote.objects.filter(author=author_name).values_list("quote", "quote_id")
     return queryset
+
+def getQuotesByTopic(topic_name):
+    queryset = Quote.objects.filter(topics_id=topic_name).values("quote", "quote_id")
+    print(queryset)
+    return queryset

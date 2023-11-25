@@ -4,3 +4,21 @@
 {% block title %}{% blocktranslate %}{{topic_name}} Quotes{% endblocktranslate %}{% endblock title %}
 
 {% block meta_desc %}{% blocktranslate %}Immerse yourself in the beauty of words that capture the essence of {{topic_name}}, offering moments of reflection and motivation{% endblocktranslate %}{% endblock meta_desc %}
+
+{% block base_content %}
+
+
+    <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
+        
+        {% for each in quotes_collection %}
+            <a class="card" href="{% url "Quote_detail" quote_url=each.quote_id %}">
+                <div class="card-body">
+                    <p>{{each.quote}}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+  
+        {{eachQuote|linebreaks}}
+
+{% endblock base_content %}
