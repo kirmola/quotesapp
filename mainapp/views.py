@@ -64,9 +64,11 @@ def quote(request, quote_url):
     data = getQuote(quote_url)
     fetched_quote = data.quote
     quote_author = data.author
+    author_slug = data.author_id
     return render(request, "quote.html", {
         "quote": fetched_quote,
-        "author": quote_author
+        "author": quote_author,
+        "author_slug" : author_slug
     })
 
 
