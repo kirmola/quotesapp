@@ -157,4 +157,4 @@ STATIC_ROOT = BASE_DIR/"static"
 
 MEDIA_ROOT = BASE_DIR / "content"
 
-MEDIA_URL = "uploads/"
+MEDIA_URL = "/uploads/"

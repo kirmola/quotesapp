@@ -61,10 +61,11 @@ def topics(request, topic_name=None):
 
 
 def quote(request, quote_url):
-    data = getQuote(quote_url)
+    data = getQuoteAndImages(quote_url)
     fetched_quote = data.quote
     quote_author = data.author
     author_slug = data.author_id
+    img1, img2, img3, img4, img5 = data.image_1, data.image_2, data.image_3, data.image_4, data.image_5
     author_next_five_records = getNextRecordsInMainAppModels("Author", "author_slug", author_slug, 5)
     # topics_next_five_records = getNextRecordsInMainAppModels("Topic", )
     return render(request, "quote.html", {
@@ -72,6 +73,7 @@ def quote(request, quote_url):
         "author": quote_author,
         "author_slug" : author_slug,
         "next_five_authors": author_next_five_records,
+        "images": [img1, img2, img3, img4, img5]
     })
 
 

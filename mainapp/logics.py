@@ -22,7 +22,7 @@ def getAllTopics():
     return newqset
 
 
-def getQuote(quote_url):
+def getQuoteAndImages(quote_url):
     queryset = get_object_or_404(Quote, quote_id=quote_url)
     return queryset
 

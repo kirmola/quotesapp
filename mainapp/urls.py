@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 from django.conf import settings
-from django.conf.urls import handler404
+from django.conf.urls import handler404, static
 
 handler404 = "mainapp.views.custom404"
 
@@ -19,5 +19,5 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += [
         path("__debug__/", include("debug_toolbar.urls")),
-    ]
+    ]+static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     
