@@ -2,6 +2,7 @@ from .models import *
 from string import ascii_lowercase
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from django.apps import apps
 from string import ascii_lowercase
 
 
@@ -32,3 +33,11 @@ def getAllQuotesByAuthor(author_name):
 def getQuotesByTopic(topic_name):
     queryset = Quote.objects.filter(topics_id=topic_name).values("quote", "quote_id")
     return queryset
+
+def getNextRecordsInMainAppModels(model, field_name, field_value ,required_records:int):
+    qsetmodel =  apps.get_model(app_label="mainapp", model_name=model)
+    
+    record_number = qsetmodel.objects.filter(**{field_name:field_value}).values("id").get()["id"]
+    next_records = qsetmodel.objects.filter(id__gt=record_number)[:required_records]
+    return next_records
+    

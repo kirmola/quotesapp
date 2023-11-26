@@ -16,6 +16,8 @@ class Quote(models.Model):
 
     
     class Meta:
+
+        app_label = "mainapp"
         verbose_name = "Quote"
         verbose_name_plural = "Quotes"
 
@@ -37,6 +39,8 @@ class Author(models.Model):
     author_slug = AutoSlugField(editable=False, populate_from="author", default=None, unique=True)
     
     class Meta:
+
+        app_label = "mainapp"
         verbose_name = "Author"
         verbose_name_plural = "Authors"
 
@@ -53,6 +57,8 @@ class Topic(models.Model):
     topic_slug = AutoSlugField(editable=False, populate_from="topic", default=None, unique=True)
 
     class Meta:
+
+        app_label = "mainapp"
         verbose_name = "Topic"
         verbose_name_plural = "Topics"
 
@@ -78,6 +84,8 @@ class SimpleContact(models.Model):
     elaboration = models.TextField(verbose_name="Description")
 
     class Meta:
+
+        app_label = "mainapp"
         verbose_name = _("SimpleContact")
         verbose_name_plural = _("SimpleContacts")
 

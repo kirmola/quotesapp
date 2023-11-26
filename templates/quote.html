@@ -6,7 +6,16 @@
 <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-6">
    <div class="p-2">Image here</div>
 
-   <div class="p-2 order-3 md:order-2">Related Information</div>
+   <div class="p-2 order-3 md:order-2">
+      <div class="border-b-2">Topics you may be interested in:</div>
+      <div class="border-b-2">Authors you may be interested in:</div>
+      <div>
+         {% for each in next_five_authors %}
+            {{each}}
+         {% endfor %}
+      </div>
+         
+   </div>
 
    <div class="p-2 order-2 md:order-3">
       <div class="card">

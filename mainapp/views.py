@@ -65,10 +65,13 @@ def quote(request, quote_url):
     fetched_quote = data.quote
     quote_author = data.author
     author_slug = data.author_id
+    author_next_five_records = getNextRecordsInMainAppModels("Author", "author_slug", author_slug, 5)
+    # topics_next_five_records = getNextRecordsInMainAppModels("Topic", )
     return render(request, "quote.html", {
         "quote": fetched_quote,
         "author": quote_author,
-        "author_slug" : author_slug
+        "author_slug" : author_slug,
+        "next_five_authors": author_next_five_records,
     })
 
 
