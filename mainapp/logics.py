@@ -6,21 +6,19 @@ from string import ascii_lowercase
 
 
 def getAllAuthors():
-    queryset = []
+    newqset = []
     for each in ascii_lowercase:
-        query = Q(author_slug__startswith=each)
-        data  = Author.objects.filter(query).values_list("author", "author_slug")[:10]
-        queryset.extend(data)
-    return queryset
+        queryset = Author.objects.filter(author_slug__startswith=each).values_list("author", "author_slug")[:10]
+        newqset.extend(queryset)
+    return newqset
 
 
 def getAllTopics():
-    query = Q()
+    newqset = []
     for each in ascii_lowercase:
-        query |= Q(topic_slug__startswith=each)
-    data = Topic.objects.filter(query)
-    queryset = data.values_list("topic", "topic_slug")
-    return queryset
+        queryset = Topic.objects.filter(topic_slug__startswith=each).values_list("topic", "topic_slug")[:10]
+        newqset.extend(queryset)
+    return newqset
 
 
 def getQuote(quote_url):
