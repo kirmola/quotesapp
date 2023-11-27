@@ -22,9 +22,15 @@ def getTopics(limit:int):
     return newqset
 
 
-def getQuoteAndImages(quote_url):
-    queryset = get_object_or_404(Quote, quote_id=quote_url)
-    return queryset
+def getQuoteData(quote_url, limit_next_records:int):
+    qobj = Quote.objects
+    qdataset = qobj.filter(quote_id=quote_url)
+    quote_data = qdataset.values_list("quote", "author", "author__author", "topics", "image_1", "image_2", "image_3", "image_4", "image_5",).get()
+    
+    authors_data = qobj.filter(quote_id__gt=quote_url).values("author","author__author")[:limit_next_records]
+    topics_data = qobj.filter(quote_id__gt=quote_url).values("topics","topics__topic")[:limit_next_records]
+    
+    return authors_data, topics_data, quote_data
 
 def getQuotesByAuthor(author_name):
     queryset = Quote.objects.filter(author=author_name).values_list("quote", "quote_id")
@@ -32,14 +38,7 @@ def getQuotesByAuthor(author_name):
 
 def getQuotesByTopic(topic_name):
     queryset = Quote.objects.filter(topics_id=topic_name).values("quote", "quote_id")
-    return queryset
-
-def getNextRecordsFromQuotes(current_url, how_many_records_needed:int):
-    master_qset = Quote.objects.filter(quote_id__gt=current_url).values_list("author_id", "topics_id")[how_many_records_needed:how_many_records_needed+5]
-    topics_qset = [Topic.objects.filter(topic_slug=i[1]).values_list("topic", "topic_slug") for i in master_qset]
-    author_qset = [Author.objects.filter(author_slug=i[0]).values_list("author", "author_slug") for i in master_qset]
-    return topics_qset, author_qset
-    
+    return queryset    
 
 def verifyAuthor(author_in_url):
     qset = get_object_or_404(Author, author_slug=author_in_url)
@@ -63,3 +62,6 @@ def getAuthors(limit:int):
         queryset = Author.objects.filter(author_slug__startswith=each).values_list("author", "author_slug")[:limit]
         newqset.extend(queryset)
     return newqset
+
+def verifyQuoteURL(quote_url):
+    qset = get_object_or_404(Quote, quote_id=quote_url)

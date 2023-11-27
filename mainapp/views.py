@@ -47,20 +47,19 @@ def topics(request, topic_name=None):
 
 
 def quote(request, quote_url):
-    data = getQuoteAndImages(quote_url)
-    fetched_quote = data.quote
-    quote_author = data.author
-    author_slug = data.author_id
-    img1, img2, img3, img4, img5 = data.image_1, data.image_2, data.image_3, data.image_4, data.image_5
-    next_five_records = getNextRecordsFromQuotes(quote_url, 5)
-    # topics_next_five_records = getNextRecordsInMainAppModels("Topic", )
+    verifyQuoteURL(quote_url)
+    data = getQuoteData(quote_url, 10)
+    quote_data = data[2]
+    author_data = [i for i in data[0]]
+    topic_data = [j for j in data[1]]
     return render(request, "quote.html", {
-        "quote": fetched_quote,
-        "author": quote_author,
-        "author_slug" : author_slug,
-        "topic_next_five_records": next_five_records[0],
-        "author_next_five_records": next_five_records[1],
-        "images": [img1, img2, img3, img4, img5]
+        "quote":quote_data[0],
+        "author":quote_data[1],
+        "topic":quote_data[2],
+        "author_title":quote_data[2],
+        "images" : [quote_data[4], quote_data[5], quote_data[6], quote_data[7], quote_data[8]],
+        "authors_data":author_data,
+        "topics_data":topic_data,
     })
 
 
