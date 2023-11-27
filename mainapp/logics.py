@@ -34,10 +34,8 @@ def getQuotesByTopic(topic_name):
     queryset = Quote.objects.filter(topics_id=topic_name).values("quote", "quote_id")
     return queryset
 
-def getNextRecordsInMainAppModels(model, field_name, field_value ,required_records:int):
-    qsetmodel =  apps.get_model(app_label="mainapp", model_name=model)
-    
-    record_number = qsetmodel.objects.filter(**{field_name:field_value}).values("id").get()["id"]
-    next_records = qsetmodel.objects.filter(id__gt=record_number)[:required_records]
-    return next_records
-    
+def getNextRecordsFromQuotes(current_url, how_many_records_needed:int):
+    master_qset = Quote.objects.filter(quote_id__gt=current_url).values_list("author_id", "topics_id")[how_many_records_needed:how_many_records_needed+5]
+    topics_qset = [Topic.objects.filter(topic_slug=i[1]).values_list("topic", "topic_slug") for i in master_qset]
+    author_qset = [Author.objects.filter(author_slug=i[0]).values_list("author", "author_slug") for i in master_qset]
+    return topics_qset, author_qset

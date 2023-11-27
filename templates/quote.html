@@ -9,10 +9,9 @@
       <div class="card">
          <div class="card-body">
             <div class="flex flex-col items-center">
-                  <!-- Large Image -->
+
                <img src="{% get_media_prefix %}{{images.0}}" class="rounded-lg w-full mb-4" alt="Large Image">
-              
-                  <!-- Three Small Images -->
+
                <div class="flex overflow-y-auto">
                   <img src="{% get_media_prefix %}{{images.1}}" class="rounded-md w-1/4 mx-0.5" alt="Small Image 1">
                   <img src="{% get_media_prefix %}{{images.2}}" class="rounded-md w-1/4 mx-0.5" alt="Small Image 2">
@@ -26,11 +25,14 @@
 
    <div class="p-2 order-3 md:order-2">
       <div class="border-b-2">Topics you may be interested in:</div>
+      {% for topic in topic_next_five_records %}
+         <a href="{% url "Topic_detail" topic_name=topic.0.1 %}" class="btn btn-light-primary">{{topic.0.0}}</a>
+      {% endfor %}
       <div class="border-b-2">Authors you may be interested in:</div>
+      {% for author in author_next_five_records %}
+         <a href="{% url "Author_detail" author_name=author.0.1 %}" class="btn btn-light-primary">{{author.0.0}}</a>     
+      {% endfor %}
       <div>
-         {% for each in next_five_authors %}
-            {{each}}
-         {% endfor %}
       </div>
          
    </div>

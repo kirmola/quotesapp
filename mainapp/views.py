@@ -66,13 +66,14 @@ def quote(request, quote_url):
     quote_author = data.author
     author_slug = data.author_id
     img1, img2, img3, img4, img5 = data.image_1, data.image_2, data.image_3, data.image_4, data.image_5
-    author_next_five_records = getNextRecordsInMainAppModels("Author", "author_slug", author_slug, 5)
+    next_five_records = getNextRecordsFromQuotes(quote_url, 5)
     # topics_next_five_records = getNextRecordsInMainAppModels("Topic", )
     return render(request, "quote.html", {
         "quote": fetched_quote,
         "author": quote_author,
         "author_slug" : author_slug,
-        "next_five_authors": author_next_five_records,
+        "topic_next_five_records": next_five_records[0],
+        "author_next_five_records": next_five_records[1],
         "images": [img1, img2, img3, img4, img5]
     })
 
