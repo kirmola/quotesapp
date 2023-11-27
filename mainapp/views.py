@@ -13,26 +13,19 @@ def home(request):
 
 
 def authors(request, author_name=None):
-    data = getAllAuthors()
     if author_name:
-        reference_dict = {v: k for k, v in data}
-        object_list = {i[1] for i in data}
-        if author_name in object_list:
-            allQuotesByAuthor = getAllQuotesByAuthor(author_name)
-            return render(request, "authors/author_individual.html", {
-                "author_name": reference_dict[author_name],
-                "all_quotes": allQuotesByAuthor
-            })
-        else:
-            raise Http404("No such Author in Database.")
+        verifyAuthor(author_name)
+        quotes_collection = getQuotesByAuthor(author_name)
+        author_name = getAuthorTitle(author_name)
+        return render(request, "authors/author_individual.html", {
+            "quotes_collection": quotes_collection,
+            "author_name": author_name[0],
+        })
     else:
-        parsedData = {}
-        for each in ascii_lowercase:
-            parsedData[each] = {k: v for k, v in data if str(v)[0] == each}
-        paginator = Paginator(data, 50)
+        data = getAuthors(10)
+        parsedData = {each:{k:v for k,v in data if str(v)[0] == each} for each in ascii_lowercase}
         return render(request, "authors/index.html", {
             "data": parsedData,
-            "paginator": paginator,
         })
 
 

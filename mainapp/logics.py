@@ -26,7 +26,7 @@ def getQuoteAndImages(quote_url):
     queryset = get_object_or_404(Quote, quote_id=quote_url)
     return queryset
 
-def getAllQuotesByAuthor(author_name):
+def getQuotesByAuthor(author_name):
     queryset = Quote.objects.filter(author=author_name).values_list("quote", "quote_id")
     return queryset
 
@@ -43,9 +43,7 @@ def getNextRecordsFromQuotes(current_url, how_many_records_needed:int):
 
 def verifyAuthor(author_in_url):
     qset = get_object_or_404(Author, author_slug=author_in_url)
-    if qset:
-        return True
-    return False
+    return
 
 def verifyTopic(topic_in_url):
     qset = get_object_or_404(Topic, topic_slug=topic_in_url)
@@ -54,3 +52,14 @@ def verifyTopic(topic_in_url):
 def getTopicTitle(topic_slug):
     qset = Topic.objects.filter(topic_slug=topic_slug)
     return qset
+
+def getAuthorTitle(author_name):
+    qset = Author.objects.filter(author_slug=author_name)
+    return qset
+
+def getAuthors(limit:int):
+    newqset = []
+    for each in ascii_lowercase:
+        queryset = Author.objects.filter(author_slug__startswith=each).values_list("author", "author_slug")[:limit]
+        newqset.extend(queryset)
+    return newqset
