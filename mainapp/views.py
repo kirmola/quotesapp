@@ -37,26 +37,19 @@ def authors(request, author_name=None):
 
 
 def topics(request, topic_name=None):
-    data = getAllTopics()
     if topic_name:
+        verifyTopic(topic_name)
         quotes_collection = getQuotesByTopic(topic_name)
-        reference_dict = {v: k for k, v in data}
-        object_list = {i[1] for i in data}
-        if topic_name in object_list:
-            return render(request, "topics/topic_individual.html", {
-                "topic_name": reference_dict[topic_name],
-                "quotes_collection": quotes_collection
-            })
-        else:
-            raise Http404("No such Topic in Database")
+        topic_name = getTopicTitle(topic_name)
+        return render(request, "topics/topic_individual.html", {
+            "topic_name": topic_name[0],
+            "quotes_collection": quotes_collection
+        })
     else:
-        parsedData = {}
-        for each in ascii_lowercase:
-            parsedData[each] = {k: v for k, v in data if str(v)[0] == each}
-        paginator = Paginator(data, 50)
+        data = getTopics(10)
+        parsedData = {each:{k:v for k,v in data if str(v)[0] == each} for each in ascii_lowercase}
         return render(request, "topics/index.html", {
             "data": parsedData,
-            "paginator": paginator
         })
 
 
