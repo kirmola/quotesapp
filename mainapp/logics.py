@@ -27,10 +27,11 @@ def getQuoteData(quote_url, limit_next_records:int):
     qdataset = qobj.filter(quote_id=quote_url)
     quote_data = qdataset.values_list("quote", "author", "author__author", "topics", "image_1", "image_2", "image_3", "image_4", "image_5",).get()
     
+    random_quotes = qobj.filter(quote_id__gt=quote_url).values_list("quote", "author", "author__author", "quote_id")[:14]
     authors_data = qobj.filter(quote_id__gt=quote_url).values("author","author__author")[:limit_next_records]
     topics_data = qobj.filter(quote_id__gt=quote_url).values("topics","topics__topic")[:limit_next_records]
     
-    return authors_data, topics_data, quote_data
+    return authors_data, topics_data, quote_data, random_quotes
 
 def getQuotesByAuthor(author_name):
     queryset = Quote.objects.filter(author=author_name).values_list("quote", "quote_id")

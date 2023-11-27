@@ -52,6 +52,7 @@ def quote(request, quote_url):
     quote_data = data[2]
     author_data = [i for i in data[0]]
     topic_data = [j for j in data[1]]
+    random_quotes = [k for k in data[3]]
     return render(request, "quote.html", {
         "quote":quote_data[0],
         "author":quote_data[1],
@@ -60,6 +61,7 @@ def quote(request, quote_url):
         "images" : [quote_data[4], quote_data[5], quote_data[6], quote_data[7], quote_data[8]],
         "authors_data":author_data,
         "topics_data":topic_data,
+        "random_quotes":random_quotes
     })
 
 
