@@ -24,14 +24,18 @@
    </div>
 
    <div class="p-2 order-3 md:order-2">
-      <div class="border-b-2">Topics you may be interested in:</div>
-      {% for topic in topics_data %}
-         <a href="{% url "Topic_detail" topic_name=topic.topics %}" class="btn rounded-full btn-light-primary">{{topic.topics__topic}}</a>
-      {% endfor %}
-      <div class="border-b-2">Authors you may be interested in:</div>
-      {% for author in authors_data %}
-         <a href="{% url "Author_detail" author_name=author.author %}" class="btn rounded-full btn-light-primary">{{author.author__author}}</a>     
-      {% endfor %}
+      <div class="border-b-2 ">Topics you may be interested in:</div>
+      <div class="flex flex-wrap gap-3 m-2">
+         {% for topic in topics_data %}
+            <a href="{% url "Topic_detail" topic_name=topic.topics %}" class="btn rounded-full btn-light-primary">{{topic.topics__topic}}</a>
+         {% endfor %}
+      </div>
+      <div class="border-b-2 mt-10">Authors you may be interested in:</div>
+      <div class="flex flex-wrap gap-3 m-2">
+         {% for author in authors_data %}
+            <a href="{% url "Author_detail" author_name=author.author %}" class="btn rounded-full btn-light-primary">{{author.author__author}}</a>     
+         {% endfor %}
+      </div>
       <div>
       </div>
          
