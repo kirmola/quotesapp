@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.apps import apps
 from string import ascii_lowercase
-
+from random import randint
 
 def getAllAuthors():
     newqset = []
@@ -66,3 +66,11 @@ def getAuthors(limit:int):
 
 def verifyQuoteURL(quote_url):
     qset = get_object_or_404(Quote, quote_id=quote_url)
+
+def getQuoteOfTheDay():
+    obj = Quote.objects
+    total_records = len(obj.all())
+    random_number = randint(0, total_records)
+    print(random_number)
+    queryset = obj.values_list("quote", "author", "author__author", "topics")[random_number:random_number+10]
+    return queryset

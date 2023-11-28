@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Quote of the Day" %}{% endblock title %}
+
+{% block meta_desc %}{% endblock meta_desc %}
+
+{% block base_content %}
+<div class="mb-5 py-2 rounded-lg text-center bg-primary-light text-primary">{% now "DATE_FORMAT" %}</div>
+
+<div class="md:mx-48 grid gap-4">
+    {% for each in data %}
+        <div class="card">
+            <div class="card-header">
+            <div class="font-semibold text-xl text-primary">{{each.3|title}} {% trans "Quote of the Day" %}</div>
+            </div>
+            <div class="card-body md:text-xl">{{each.0}}</div>
+            <div class="card-footer"><a href="{% url "Author_detail" author_name=each.1 %}" class="btn btn-sm btn-link">{{each.2}}</a></div>
+        </div>
+        
+        {% endfor %}
+</div>
+{% endblock base_content %}

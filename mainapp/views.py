@@ -88,3 +88,10 @@ def thanks_for_contacting(request):
 
 def custom404(request, exception):
     return render(request, "404.html", status=404)
+
+
+def qotd(request):
+    data = getQuoteOfTheDay()
+    return render(request, "qotd.html", {
+        "data":[i for i in data]
+    })
