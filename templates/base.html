@@ -12,6 +12,7 @@
     <title>{% block title %}Base Homepage{% endblock title %}</title>
     {% tailwind_css %}
     <script defer src="{% static "js/main.js" %}"></script>
+    {% block custom_css_js %}{% endblock custom_css_js %}
     <meta name="description" content="{% block meta_desc %}{% endblock meta_desc %}">
     {% for lang in LANGUAGES %}
     <link rel="alternate" hreflang="{{ lang.0 }}" href="{% translateURL request.path lang.0 %}"/>
