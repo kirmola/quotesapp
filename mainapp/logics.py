@@ -14,12 +14,16 @@ def getAllAuthors():
     return newqset
 
 
-def getTopics(limit:int):
-    newqset = []
-    for each in ascii_lowercase:
-        queryset = Topic.objects.filter(topic_slug__startswith=each).values_list("topic", "topic_slug")[:limit]
-        newqset.extend(queryset)
-    return newqset
+def getTopics(limit:int, where_to_display=None):
+    if where_to_display and where_to_display == "homepage":
+        newqset = Topic.objects.values_list("topic", "topic_slug")[:limit]
+        return newqset
+    else:
+        newqset = []
+        for each in ascii_lowercase:
+            queryset = Topic.objects.filter(topic_slug__startswith=each).values_list("topic", "topic_slug")[:limit]
+            newqset.extend(queryset)
+        return newqset
 
 
 def getQuoteData(quote_url, limit_next_records:int):
@@ -57,12 +61,16 @@ def getAuthorTitle(author_name):
     qset = Author.objects.filter(author_slug=author_name)
     return qset
 
-def getAuthors(limit:int):
-    newqset = []
-    for each in ascii_lowercase:
-        queryset = Author.objects.filter(author_slug__startswith=each).values_list("author", "author_slug")[:limit]
-        newqset.extend(queryset)
-    return newqset
+def getAuthors(limit:int, where_to_display=None):
+    if where_to_display and where_to_display == "homepage":
+        newqset = Author.objects.values_list("author", "author_slug")[:limit]
+        return newqset
+    else:
+        newqset = []
+        for each in ascii_lowercase:
+            queryset = Author.objects.filter(author_slug__startswith=each).values_list("author", "author_slug")[:limit]
+            newqset.extend(queryset)
+        return newqset
 
 def verifyQuoteURL(quote_url):
     qset = get_object_or_404(Quote, quote_id=quote_url)

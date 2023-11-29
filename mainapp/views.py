@@ -9,7 +9,12 @@ from django.views.decorators.http import require_http_methods
 
 
 def home(request):
-    return render(request, "homepage.html")
+    topics = getTopics(10, "homepage")
+    authors = getAuthors(10, "homepage")
+    return render(request, "homepage.html", {
+        "topics":topics,
+        "authors":authors
+    })
 
 
 def authors(request, author_name=None):
