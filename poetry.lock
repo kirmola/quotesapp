@@ -53,6 +53,21 @@ cyrillic = ["pytils (>=0.2)"]
 translitcodec = ["translitcodec (>=0.3)"]
 
 [[package]]
+name = "django-browser-reload"
+version = "1.12.1"
+description = "Automatically reload your browser in development."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django-browser-reload-1.12.1.tar.gz", hash = "sha256:875b6bd01db13380522ccb4ae75871a2edeae74bb5ac92bf32eb76763d575d86"},
+    {file = "django_browser_reload-1.12.1-py3-none-any.whl", hash = "sha256:08b457f1b6599bf782d4d2ecdfb0897d6fc936ac4035060d0269c2af5ef4ef7a"},
+]
+
+[package.dependencies]
+asgiref = ">=3.6"
+Django = ">=3.2"
+
+[[package]]
 name = "django-debug-toolbar"
 version = "4.2.0"
 description = "A configurable set of panels that display various debug information about the current request/response."
@@ -256,4 +271,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "74bc6143c29d0533cce67df5577163efecbfd41f4f0790e3194c8b1507089ef8"
+content-hash = "10ad6ea9fe28c8801aeb73d9a4f984325149ad55a1c77a7e854f02fe34b0f4f2"
