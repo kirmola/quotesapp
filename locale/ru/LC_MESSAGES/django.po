@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-28 05:34+0000\n"
+"POT-Creation-Date: 2023-11-29 07:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,6 +55,10 @@ msgstr "испанский"
 #: quotesapp/base_settings.py:128
 msgid "Hindi"
 msgstr "хинди"
+
+#: quotesapp/base_settings.py:129
+msgid "Chinese (Simplified)"
+msgstr ""
 
 #: templates/authors/author_individual.html:4
 #, python-format
@@ -105,6 +109,7 @@ msgid "Topics"
 msgstr "Топики"
 
 #: templates/layout/header.html:27 templates/layout/header.html:95
+#: templates/qotd.html:4 templates/qotd.html:15
 msgid "Quote of the Day"
 msgstr "Цитата дня"
 

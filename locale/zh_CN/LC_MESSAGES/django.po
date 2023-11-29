@@ -16,125 +16,114 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: mainapp/models.py:93
-#, fuzzy
-#| msgid "Contact Us"
 msgid "SimpleContact"
-msgstr "संपर्क करें"
+msgstr "联系我们"
 
 #: mainapp/models.py:94
-#, fuzzy
-#| msgid "Contact Us"
 msgid "SimpleContacts"
-msgstr "संपर्क करें"
+msgstr "联系我们"
 
 #: quotesapp/base_settings.py:123
 msgid "English"
-msgstr "अंग्रेज़ी"
+msgstr "英语"
 
 #: quotesapp/base_settings.py:124
 msgid "German"
-msgstr "जर्मन"
+msgstr "德语"
 
 #: quotesapp/base_settings.py:125
 msgid "Russian"
-msgstr "रूसी"
+msgstr "俄语"
 
 #: quotesapp/base_settings.py:126
 msgid "French"
-msgstr "फ़्रेंच"
+msgstr "法语"
 
 #: quotesapp/base_settings.py:127
 msgid "Spanish"
-msgstr "स्पैनिश"
+msgstr "西班牙语"
 
 #: quotesapp/base_settings.py:128
 msgid "Hindi"
-msgstr "हिंदी"
+msgstr "印地语"
 
 #: quotesapp/base_settings.py:129
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "简体中文）"
 
 #: templates/authors/author_individual.html:4
 #, python-format
 msgid "Quotes by %(author_name)s"
-msgstr "%(author_name)s द्वारा दिए गए उद्धरण"
+msgstr "%(author_name)s 的引用"
 
 #: templates/authors/author_individual.html:6
 #, python-format
 msgid ""
 "Discover the essence of %(author_name)s's philospohy and insights through a "
 "curated selection of memorable quotes."
-msgstr ""
-"यादगार उद्धरणों के क्यूरेटेड चयन के माध्यम से %(author_name)s के दर्शन और अंतर्दृष्टि का सार "
-"खोजें।"
+msgstr "通过精心挑选的令人难忘的引言，发现 %(author_name)s 的哲学和见解的精髓。"
 
 #: templates/authors/index.html:3 templates/authors/index.html:13
 #: templates/layout/header.html:26 templates/layout/header.html:93
 msgid "Authors"
-msgstr "लेखक"
+msgstr "作者"
 
 #: templates/authors/index.html:5
 msgid ""
 "Delve into the minds of literary giants and discover timeless quotes that "
 "resonate with the human experience."
 msgstr ""
-"साहित्यिक दिग्गजों के दिमाग में उतरें और उन कालजयी उद्धरणों की खोज करें जो मानवीय अनुभव के "
-"साथ प्रतिध्वनित हों।"
-
+"深入文学巨匠的思想，"
+"发现与人类经验产生共鸣的永恒名言。"
 #: templates/homepage.html:3
 msgid "Discover Inspirational Quotes"
-msgstr "प्रेरणादायक उद्धरण खोजें"
+msgstr "发现励志名言"
 
 #: templates/homepage.html:4
 msgid ""
 "Explore profound insights and timeless wisdom through our curated collection "
 "of quotes from renowned personalities worldwide."
 msgstr ""
-"दुनिया भर की प्रसिद्ध हस्तियों के उद्धरणों के हमारे संग्रहित संग्रह के माध्यम से गहन अंतर्दृष्टि "
-"और कालातीत ज्ञान का अन्वेषण करें।"
-
+"通过我们精选的全球知名人士的名言集，"
+"探索深刻的见解和永恒的智慧。"
 #: templates/layout/footer.html:3
 msgid "Made with Love in India."
-msgstr ""
+msgstr "印度用爱制造。"
 
 #: templates/layout/header.html:25 templates/layout/header.html:92
 #: templates/topics/index.html:4
 msgid "Topics"
-msgstr "विषय"
+msgstr "话题"
 
 #: templates/layout/header.html:27 templates/layout/header.html:95
 #: templates/qotd.html:4 templates/qotd.html:15
 msgid "Quote of the Day"
-msgstr "आज का विचार"
+msgstr "今日报价"
 
 #: templates/pages/contact.html:5
 msgid "Contact Us"
-msgstr "संपर्क करें"
+msgstr "联系我们"
 
 #: templates/pages/contact.html:7
 msgid ""
 "If you are having any problem on/regarding this site, just fill this form "
 "and we will be in touch asap."
 msgstr ""
-"यदि आपको इस साइट के संबंध में कोई समस्या हो रही है, तो बस यह फॉर्म भरें और हम यथाशीघ्र "
-"आपसे संपर्क करेंगे।"
-
+"如果您在本网站上有任何问题，"
+"请填写此表格，我们将尽快与您联系。"
 #: templates/topics/index.html:6
 msgid ""
 "Explore a vast collection of quotes organized by topic, featuring words of "
 "wisdom from renowned authors, historical figures, and everyday people."
 msgstr ""
-"विषय के आधार पर व्यवस्थित उद्धरणों के एक विशाल संग्रह का अन्वेषण करें, जिसमें प्रसिद्ध लेखकों, "
-"ऐतिहासिक शख्सियतों और रोजमर्रा के लोगों के ज्ञान के शब्द शामिल हैं।"
-
+"探索按主题组织的大量引言，其中包含著名作家、"
+"历史人物和普通人的智慧之言。"
 #: templates/topics/topic_individual.html:4
 #, python-format
 msgid "%(topic_name)s Quotes"
-msgstr "%(topic_name)s पर उद्धरण"
+msgstr "%(topic_name)s 引号"
 
 #: templates/topics/topic_individual.html:6
 #, python-format
@@ -142,5 +131,5 @@ msgid ""
 "Immerse yourself in the beauty of words that capture the essence of "
 "%(topic_name)s, offering moments of reflection and motivation"
 msgstr ""
-"अपने आप को उन शब्दों की सुंदरता में डुबोएं जो %(topic_name)s के सार को पकड़ते हैं, प्रतिबिंब "
-"और प्रेरणा के क्षण प्रदान करते हैं"
+"让自己沉浸在捕捉 %(topic_name)s "
+"精髓的文字之美中，提供反思和激励的时刻"
