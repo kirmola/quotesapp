@@ -1,5 +1,8 @@
 from quotesapp.base_settings import *
 
+SITE_NAME = "QuotesApp"
+
+
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS+=[

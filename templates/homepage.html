@@ -2,3 +2,11 @@
 {% load i18n %}
 {% block title %}{% trans "Discover Inspirational Quotes" %}{% endblock title %}
 {% block meta_desc %}{% trans "Explore profound insights and timeless wisdom through our curated collection of quotes from renowned personalities worldwide." %}{% endblock meta_desc %}
+
+{% block base_content %}
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="order-2 md:order-1">second on mobile</div>
+    <div class="order-1 md:order-2">first on mobile</div>
+    <div class="order-3 md:order-3">third on mobile</div>
+  </div>
+{% endblock base_content %}

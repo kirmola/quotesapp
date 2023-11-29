@@ -1,15 +1,15 @@
 {% load i18n %}
 {% load localeurl %}
+{% load static tailwind_tags %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language as current_language %}
 
 <!DOCTYPE html>
 <html lang="{{current_language}}">
-{% load static tailwind_tags %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Base Homepage{% endblock title %}</title>
+    <title>{% block title %}Base Homepage{% endblock title %} | {{SITE_NAME}}</title>
     {% tailwind_css %}
     <script defer src="{% static "js/main.js" %}"></script>
     {% block custom_css_js %}{% endblock custom_css_js %}
