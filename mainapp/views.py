@@ -58,12 +58,16 @@ def quote(request, quote_url):
     author_data = [i for i in data[0]]
     topic_data = [j for j in data[1]]
     random_quotes = [k for k in data[3]]
+    images = [quote_data[5], quote_data[6], quote_data[7], quote_data[8]]
+    thumbs = [str(i).removesuffix(".png").__add__("-thumb.png") for i in images]
+
     return render(request, "quote.html", {
         "quote":quote_data[0],
         "author":quote_data[1],
         "topic":quote_data[2],
         "author_title":quote_data[2],
-        "images" : [quote_data[4], quote_data[5], quote_data[6], quote_data[7], quote_data[8]],
+        "images" : zip(images,thumbs),
+        "main_image":quote_data[4],
         "authors_data":author_data,
         "topics_data":topic_data,
         "random_quotes":random_quotes
