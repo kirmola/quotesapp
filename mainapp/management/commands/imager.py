@@ -59,14 +59,14 @@ class Command(BaseCommand):
                 else:
 
                     # Image is being saved at this point
-                    each[1].save(f"{image_save_location}/{image_name}")
+                    each[1].save(f"{image_save_location}/{image_name}", optimize=True)
 
 
                     # Thumbnail is being saved at this point
                     # Just remove image_save_location and put thumbnail_save_location below if you want thumbnails to be saved in new location
                     
                     each[1].thumbnail(thumbnail_size)
-                    each[1].save(f"{image_save_location}/{thumbnail_name}")
+                    each[1].save(f"{image_save_location}/{thumbnail_name}", optimize=True)
                     
                     
                     self.stdout.write(f"'{image_name}' has been saved successfully.")
