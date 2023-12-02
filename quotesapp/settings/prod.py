@@ -2,7 +2,7 @@ from quotesapp.base_settings import *
 
 ALLOWED_HOSTS = []
 
-SITE_NAME = "QuotesApp"
+SITE_NAME = "Quotosphere"
 
 INSTALLED_APPS+=[
 
