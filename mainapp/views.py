@@ -87,7 +87,7 @@ def contact(request):
             })
         case "POST":
             formData = SimpleContactForm(request.POST)
-            ack = formData.save()
+            formData.save()
             return HttpResponseRedirect("/thanks-for-contacting/")
 
 

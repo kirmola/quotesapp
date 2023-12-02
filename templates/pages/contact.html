@@ -7,10 +7,32 @@
 {% block meta_desc %}{% trans "If you are having any problem on/regarding this site, just fill this form and we will be in touch asap." %}{% endblock meta_desc %}
 
 {% block base_content %}
+<section>
 <form action="" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" class="btn btn-outline-primary">Submit Entry</button>
-</form>
+        <div class="mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center">Contact Us</h2>
+            <p class="my-7 lg:mb-16 font-light text-center sm:text-xl">Got a technical issue? Want to send feedback about something? Let us know.</p>
+                <div class="my-4">
+                    <label for="id_name" class="block mb-2 text-sm font-medium">Your Name</label>
+                    {{form.name}}
+                </div>
+                <div class="my-4">
+                    <label for="id_email" class="block mb-2 text-sm font-medium">Your email</label>
+                    {{form.email}}
+                </div>
+                <div class="my-4">
+                    <label for="id_problem" class="block mb-2 text-sm font-medium">Select your problem below:</label>
+                    {{form.problem}}
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="id_elaboration" class="block mb-2 text-sm font-medium">Your message</label>
+                    {{form.elaboration}}
+                </div>
+            <button type="submit" class="btn btn-outline-primary w-full my-3 btn-lg">Shoot!</button>
+        </div>
+        
+    </form>
+</section>
 
 {% endblock base_content %}
