@@ -1,6 +1,6 @@
 from quotesapp.base_settings import *
 
-SITE_NAME = "QuotesApp"
+SITE_NAME = "Quotosphere"
 
 
 ALLOWED_HOSTS = ["*"]
