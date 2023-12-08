@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 09:33+0000\n"
+"POT-Creation-Date: 2023-12-08 11:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,33 +32,49 @@ msgstr "Связаться с нами"
 msgid "SimpleContacts"
 msgstr "Связаться с нами"
 
-#: quotesapp/base_settings.py:125
+#: quotesapp/base_settings.py:124
 msgid "English"
 msgstr "Английский"
 
-#: quotesapp/base_settings.py:126
+#: quotesapp/base_settings.py:125
 msgid "German"
 msgstr "Немецкий"
 
-#: quotesapp/base_settings.py:127
+#: quotesapp/base_settings.py:126
 msgid "Russian"
 msgstr "Русский"
 
-#: quotesapp/base_settings.py:128
+#: quotesapp/base_settings.py:127
 msgid "French"
 msgstr "Французский"
 
-#: quotesapp/base_settings.py:129
+#: quotesapp/base_settings.py:128
 msgid "Spanish"
 msgstr "испанский"
 
-#: quotesapp/base_settings.py:130
+#: quotesapp/base_settings.py:129
 msgid "Hindi"
 msgstr "хинди"
 
-#: quotesapp/base_settings.py:131
+#: quotesapp/base_settings.py:130
 msgid "Chinese (Simplified)"
 msgstr ""
+
+#: templates/404.html:3
+msgid "Oops! Nothing Here."
+msgstr "Упс! Здесь ничего."
+
+#: templates/404.html:9
+msgid "Oh no! We couldn’t find the page you were looking for."
+msgstr "О, нет! Мы не смогли найти страницу, которую вы искали."
+
+#: templates/404.html:11
+msgid "Let's take you"
+msgstr "Давайте отвезем вас"
+
+#: templates/404.html:12
+msgid "Home"
+msgstr "домой"
 
 #: templates/authors/author_individual.html:4
 #, python-format
@@ -145,7 +161,9 @@ msgstr ""
 #: templates/pages/contact.html:15
 msgid ""
 "Got a technical issue? Want to send feedback about something? Let us know."
-msgstr "Возникла техническая проблема? Хотите отправить отзыв о чем-то? Дайте нам знать."
+msgstr ""
+"Возникла техническая проблема? Хотите отправить отзыв о чем-то? Дайте нам "
+"знать."
 
 #: templates/pages/contact.html:17
 msgid "Your Name"

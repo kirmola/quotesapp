@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-08 09:33+0000\n"
+"POT-Creation-Date: 2023-12-08 11:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,33 +30,49 @@ msgstr "Contactez-nous"
 msgid "SimpleContacts"
 msgstr "Contactez-nous"
 
-#: quotesapp/base_settings.py:125
+#: quotesapp/base_settings.py:124
 msgid "English"
 msgstr "Anglais"
 
-#: quotesapp/base_settings.py:126
+#: quotesapp/base_settings.py:125
 msgid "German"
 msgstr "Allemand"
 
-#: quotesapp/base_settings.py:127
+#: quotesapp/base_settings.py:126
 msgid "Russian"
 msgstr "russe"
 
-#: quotesapp/base_settings.py:128
+#: quotesapp/base_settings.py:127
 msgid "French"
 msgstr "Français"
 
-#: quotesapp/base_settings.py:129
+#: quotesapp/base_settings.py:128
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: quotesapp/base_settings.py:130
+#: quotesapp/base_settings.py:129
 msgid "Hindi"
 msgstr "hindi"
 
-#: quotesapp/base_settings.py:131
+#: quotesapp/base_settings.py:130
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chinois simplifié"
+
+#: templates/404.html:3
+msgid "Oops! Nothing Here."
+msgstr "Oops! Rien ici."
+
+#: templates/404.html:9
+msgid "Oh no! We couldn’t find the page you were looking for."
+msgstr "Oh non! Nous n'avons pas trouvé la page que vous recherchiez."
+
+#: templates/404.html:11
+msgid "Let's take you"
+msgstr "Nous vous ramenons à la"
+
+#: templates/404.html:12
+msgid "Home"
+msgstr "maison"
 
 #: templates/authors/author_individual.html:4
 #, python-format
@@ -143,7 +159,9 @@ msgstr ""
 #: templates/pages/contact.html:15
 msgid ""
 "Got a technical issue? Want to send feedback about something? Let us know."
-msgstr "Vous avez un problème technique ? Vous souhaitez envoyer des commentaires sur quelque chose ? Faites le nous savoir."
+msgstr ""
+"Vous avez un problème technique ? Vous souhaitez envoyer des commentaires "
+"sur quelque chose ? Faites le nous savoir."
 
 #: templates/pages/contact.html:17
 msgid "Your Name"
