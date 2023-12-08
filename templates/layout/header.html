@@ -31,15 +31,15 @@
 <div class="flex space-x-2">
   <div x-data="dropdown()">
     <button class="btn btn-outline-primary btn-sm" id="open-color-menu-small" x-spread="trigger">
-      About
+      {% trans "About" %}
       <svg class="dropdown-arrow" :class="{ 'rotate-180': open }" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
     <div class="dropdown-list" id="color-menu-small" x-spread="dropdown" x-cloak>
-      <p class="dropdown-header">Pages</p>
-      <a href="#" class="dropdown-item">Terms</a>
-      <a href="#" class="dropdown-item">Privacy</a>
+      <p class="dropdown-header">{% trans "Pages" %}</p>
+      <a href="#" class="dropdown-item">{% trans "Terms" %}</a>
+      <a href="#" class="dropdown-item">{% trans "Privacy" %}</a>
       <div class="dropdown-divide"></div>
-      <a href="{% url "contact" %}" class="dropdown-item">Contact</a>
+      <a href="{% url "contact" %}" class="dropdown-item">{% trans "Contact Us" %}</a>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-29 07:06+0000\n"
+"POT-Creation-Date: 2023-12-08 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mainapp/models.py:93
+#: mainapp/models.py:113
 msgid "SimpleContact"
 msgstr "联系我们"
 
-#: mainapp/models.py:94
+#: mainapp/models.py:114
 msgid "SimpleContacts"
 msgstr "联系我们"
 
-#: quotesapp/base_settings.py:123
+#: quotesapp/base_settings.py:125
 msgid "English"
 msgstr "英语"
 
-#: quotesapp/base_settings.py:124
+#: quotesapp/base_settings.py:126
 msgid "German"
 msgstr "德语"
 
-#: quotesapp/base_settings.py:125
+#: quotesapp/base_settings.py:127
 msgid "Russian"
 msgstr "俄语"
 
-#: quotesapp/base_settings.py:126
+#: quotesapp/base_settings.py:128
 msgid "French"
 msgstr "法语"
 
-#: quotesapp/base_settings.py:127
+#: quotesapp/base_settings.py:129
 msgid "Spanish"
 msgstr "西班牙语"
 
-#: quotesapp/base_settings.py:128
+#: quotesapp/base_settings.py:130
 msgid "Hindi"
 msgstr "印地语"
 
-#: quotesapp/base_settings.py:129
+#: quotesapp/base_settings.py:131
 msgid "Chinese (Simplified)"
 msgstr "简体中文）"
 
@@ -63,7 +63,8 @@ msgstr "%(author_name)s 的引用"
 msgid ""
 "Discover the essence of %(author_name)s's philospohy and insights through a "
 "curated selection of memorable quotes."
-msgstr "通过精心挑选的令人难忘的引言，发现 %(author_name)s 的哲学和见解的精髓。"
+msgstr ""
+"通过精心挑选的令人难忘的引言，发现 %(author_name)s 的哲学和见解的精髓。"
 
 #: templates/authors/index.html:3 templates/authors/index.html:13
 #: templates/layout/header.html:26 templates/layout/header.html:93
@@ -74,9 +75,8 @@ msgstr "作者"
 msgid ""
 "Delve into the minds of literary giants and discover timeless quotes that "
 "resonate with the human experience."
-msgstr ""
-"深入文学巨匠的思想，"
-"发现与人类经验产生共鸣的永恒名言。"
+msgstr "深入文学巨匠的思想，发现与人类经验产生共鸣的永恒名言。"
+
 #: templates/homepage.html:3
 msgid "Discover Inspirational Quotes"
 msgstr "发现励志名言"
@@ -85,9 +85,8 @@ msgstr "发现励志名言"
 msgid ""
 "Explore profound insights and timeless wisdom through our curated collection "
 "of quotes from renowned personalities worldwide."
-msgstr ""
-"通过我们精选的全球知名人士的名言集，"
-"探索深刻的见解和永恒的智慧。"
+msgstr "通过我们精选的全球知名人士的名言集，探索深刻的见解和永恒的智慧。"
+
 #: templates/layout/footer.html:3
 msgid "Made with Love in India."
 msgstr "印度用爱制造。"
@@ -102,7 +101,24 @@ msgstr "话题"
 msgid "Quote of the Day"
 msgstr "今日报价"
 
-#: templates/pages/contact.html:5
+#: templates/layout/header.html:36
+msgid "About"
+msgstr "关于我们"
+
+#: templates/layout/header.html:40
+msgid "Pages"
+msgstr "页面"
+
+#: templates/layout/header.html:41
+msgid "Terms"
+msgstr "条款和条件"
+
+#: templates/layout/header.html:42
+msgid "Privacy"
+msgstr "隐私政策"
+
+#: templates/layout/header.html:44 templates/pages/contact.html:5
+#: templates/pages/contact.html:14
 msgid "Contact Us"
 msgstr "联系我们"
 
@@ -110,16 +126,40 @@ msgstr "联系我们"
 msgid ""
 "If you are having any problem on/regarding this site, just fill this form "
 "and we will be in touch asap."
-msgstr ""
-"如果您在本网站上有任何问题，"
-"请填写此表格，我们将尽快与您联系。"
+msgstr "如果您在本网站上有任何问题，请填写此表格，我们将尽快与您联系。"
+
+#: templates/pages/contact.html:15
+msgid ""
+"Got a technical issue? Want to send feedback about something? Let us know."
+msgstr "有技术问题吗？ 想要发送有关某事的反馈吗？ 让我们知道。"
+
+#: templates/pages/contact.html:17
+msgid "Your Name"
+msgstr "你的名字"
+
+#: templates/pages/contact.html:21
+msgid "Your email"
+msgstr "你的邮件"
+
+#: templates/pages/contact.html:25
+msgid "Select your problem below:"
+msgstr "在下面选择您的问题："
+
+#: templates/pages/contact.html:29
+msgid "Your message"
+msgstr "您的留言"
+
+#: templates/pages/contact.html:32
+msgid "Send"
+msgstr "发送"
+
 #: templates/topics/index.html:6
 msgid ""
 "Explore a vast collection of quotes organized by topic, featuring words of "
 "wisdom from renowned authors, historical figures, and everyday people."
 msgstr ""
-"探索按主题组织的大量引言，其中包含著名作家、"
-"历史人物和普通人的智慧之言。"
+"探索按主题组织的大量引言，其中包含著名作家、历史人物和普通人的智慧之言。"
+
 #: templates/topics/topic_individual.html:4
 #, python-format
 msgid "%(topic_name)s Quotes"
@@ -130,6 +170,9 @@ msgstr "%(topic_name)s 引号"
 msgid ""
 "Immerse yourself in the beauty of words that capture the essence of "
 "%(topic_name)s, offering moments of reflection and motivation"
-msgstr ""
-"让自己沉浸在捕捉 %(topic_name)s "
-"精髓的文字之美中，提供反思和激励的时刻"
+msgstr "让自己沉浸在捕捉 %(topic_name)s 精髓的文字之美中，提供反思和激励的时刻"
+
+#, fuzzy
+#~| msgid "Contact Us"
+#~ msgid "Contact"
+#~ msgstr "联系我们"

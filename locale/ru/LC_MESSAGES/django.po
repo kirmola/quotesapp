@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-29 07:06+0000\n"
+"POT-Creation-Date: 2023-12-08 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,43 +20,43 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: mainapp/models.py:93
+#: mainapp/models.py:113
 #, fuzzy
 #| msgid "Contact Us"
 msgid "SimpleContact"
 msgstr "Связаться с нами"
 
-#: mainapp/models.py:94
+#: mainapp/models.py:114
 #, fuzzy
 #| msgid "Contact Us"
 msgid "SimpleContacts"
 msgstr "Связаться с нами"
 
-#: quotesapp/base_settings.py:123
+#: quotesapp/base_settings.py:125
 msgid "English"
 msgstr "Английский"
 
-#: quotesapp/base_settings.py:124
+#: quotesapp/base_settings.py:126
 msgid "German"
 msgstr "Немецкий"
 
-#: quotesapp/base_settings.py:125
+#: quotesapp/base_settings.py:127
 msgid "Russian"
 msgstr "Русский"
 
-#: quotesapp/base_settings.py:126
+#: quotesapp/base_settings.py:128
 msgid "French"
 msgstr "Французский"
 
-#: quotesapp/base_settings.py:127
+#: quotesapp/base_settings.py:129
 msgid "Spanish"
 msgstr "испанский"
 
-#: quotesapp/base_settings.py:128
+#: quotesapp/base_settings.py:130
 msgid "Hindi"
 msgstr "хинди"
 
-#: quotesapp/base_settings.py:129
+#: quotesapp/base_settings.py:131
 msgid "Chinese (Simplified)"
 msgstr ""
 
@@ -113,7 +113,24 @@ msgstr "Топики"
 msgid "Quote of the Day"
 msgstr "Цитата дня"
 
-#: templates/pages/contact.html:5
+#: templates/layout/header.html:36
+msgid "About"
+msgstr "О нас"
+
+#: templates/layout/header.html:40
+msgid "Pages"
+msgstr "Страницы"
+
+#: templates/layout/header.html:41
+msgid "Terms"
+msgstr "Условия использования"
+
+#: templates/layout/header.html:42
+msgid "Privacy"
+msgstr "политика конфиденциальности"
+
+#: templates/layout/header.html:44 templates/pages/contact.html:5
+#: templates/pages/contact.html:14
 msgid "Contact Us"
 msgstr "Связаться с нами"
 
@@ -124,6 +141,31 @@ msgid ""
 msgstr ""
 "Если у вас возникли какие-либо проблемы на/относительно этого сайта, просто "
 "заполните эту форму, и мы свяжемся с вами как можно скорее"
+
+#: templates/pages/contact.html:15
+msgid ""
+"Got a technical issue? Want to send feedback about something? Let us know."
+msgstr "Возникла техническая проблема? Хотите отправить отзыв о чем-то? Дайте нам знать."
+
+#: templates/pages/contact.html:17
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: templates/pages/contact.html:21
+msgid "Your email"
+msgstr "Ваш адрес электронной почты"
+
+#: templates/pages/contact.html:25
+msgid "Select your problem below:"
+msgstr "Выберите свою проблему ниже:"
+
+#: templates/pages/contact.html:29
+msgid "Your message"
+msgstr "Ваше сообщение"
+
+#: templates/pages/contact.html:32
+msgid "Send"
+msgstr "Отправлять"
 
 #: templates/topics/index.html:6
 msgid ""
@@ -146,3 +188,8 @@ msgid ""
 msgstr ""
 "Погрузитесь в красоту слов, передающих суть%(topic_name)s, предлагает "
 "моменты для размышлений и мотивации"
+
+#, fuzzy
+#~| msgid "Contact Us"
+#~ msgid "Contact"
+#~ msgstr "Связаться с нами"

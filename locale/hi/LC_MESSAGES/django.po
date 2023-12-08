@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-29 07:06+0000\n"
+"POT-Creation-Date: 2023-12-08 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: mainapp/models.py:93
+#: mainapp/models.py:113
 #, fuzzy
 #| msgid "Contact Us"
 msgid "SimpleContact"
 msgstr "संपर्क करें"
 
-#: mainapp/models.py:94
+#: mainapp/models.py:114
 #, fuzzy
 #| msgid "Contact Us"
 msgid "SimpleContacts"
 msgstr "संपर्क करें"
 
-#: quotesapp/base_settings.py:123
+#: quotesapp/base_settings.py:125
 msgid "English"
 msgstr "अंग्रेज़ी"
 
-#: quotesapp/base_settings.py:124
+#: quotesapp/base_settings.py:126
 msgid "German"
 msgstr "जर्मन"
 
-#: quotesapp/base_settings.py:125
+#: quotesapp/base_settings.py:127
 msgid "Russian"
 msgstr "रूसी"
 
-#: quotesapp/base_settings.py:126
+#: quotesapp/base_settings.py:128
 msgid "French"
 msgstr "फ़्रेंच"
 
-#: quotesapp/base_settings.py:127
+#: quotesapp/base_settings.py:129
 msgid "Spanish"
 msgstr "स्पैनिश"
 
-#: quotesapp/base_settings.py:128
+#: quotesapp/base_settings.py:130
 msgid "Hindi"
 msgstr "हिंदी"
 
-#: quotesapp/base_settings.py:129
+#: quotesapp/base_settings.py:131
 msgid "Chinese (Simplified)"
 msgstr ""
 
@@ -111,7 +111,24 @@ msgstr "विषय"
 msgid "Quote of the Day"
 msgstr "आज का विचार"
 
-#: templates/pages/contact.html:5
+#: templates/layout/header.html:36
+msgid "About"
+msgstr "हमारे बारे में"
+
+#: templates/layout/header.html:40
+msgid "Pages"
+msgstr "पृष्ठ"
+
+#: templates/layout/header.html:41
+msgid "Terms"
+msgstr "नियम एवं शर्तें"
+
+#: templates/layout/header.html:42
+msgid "Privacy"
+msgstr "गोपनीयता नीति"
+
+#: templates/layout/header.html:44 templates/pages/contact.html:5
+#: templates/pages/contact.html:14
 msgid "Contact Us"
 msgstr "संपर्क करें"
 
@@ -122,6 +139,31 @@ msgid ""
 msgstr ""
 "यदि आपको इस साइट के संबंध में कोई समस्या हो रही है, तो बस यह फॉर्म भरें और हम यथाशीघ्र "
 "आपसे संपर्क करेंगे।"
+
+#: templates/pages/contact.html:15
+msgid ""
+"Got a technical issue? Want to send feedback about something? Let us know."
+msgstr "कोई तकनीकी समस्या है? किसी चीज़ के बारे में प्रतिक्रिया भेजना चाहते हैं? हमें बताइए।"
+
+#: templates/pages/contact.html:17
+msgid "Your Name"
+msgstr "आपका नाम"
+
+#: templates/pages/contact.html:21
+msgid "Your email"
+msgstr "आपका ईमेल"
+
+#: templates/pages/contact.html:25
+msgid "Select your problem below:"
+msgstr "नीचे अपनी समस्या चुनें:"
+
+#: templates/pages/contact.html:29
+msgid "Your message"
+msgstr "आपका संदेश"
+
+#: templates/pages/contact.html:32
+msgid "Send"
+msgstr "भेजें"
 
 #: templates/topics/index.html:6
 msgid ""
@@ -144,3 +186,8 @@ msgid ""
 msgstr ""
 "अपने आप को उन शब्दों की सुंदरता में डुबोएं जो %(topic_name)s के सार को पकड़ते हैं, प्रतिबिंब "
 "और प्रेरणा के क्षण प्रदान करते हैं"
+
+#, fuzzy
+#~| msgid "Contact Us"
+#~ msgid "Contact"
+#~ msgstr "संपर्क करें"
