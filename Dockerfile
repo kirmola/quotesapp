@@ -11,8 +11,8 @@ RUN pip install poetry
 RUN poetry install --without=dev
 
 
-RUN poetry run python manage.py migrate 
-RUN poetry run python manage.py collectstatic --noinput 
+RUN poetry run python manage.py migrate --settings=quotesapp.settings.prod
+RUN poetry run python manage.py collectstatic --noinput --settings=quotesapp.settings.prod
 
 EXPOSE 80
 
