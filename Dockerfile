@@ -8,10 +8,9 @@ COPY . .
 
 RUN pip install poetry
 
-RUN poetry install
+RUN poetry install --without=dev
 
 
-RUN poetry run python manage.py makemigrations 
 RUN poetry run python manage.py migrate 
 RUN poetry run python manage.py collectstatic --noinput 
 
