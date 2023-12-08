@@ -1,6 +1,6 @@
 from quotesapp.base_settings import *
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 SITE_NAME = "Quoteshrine"
 
@@ -12,7 +12,13 @@ MIDDLEWARE+=[
 
 ]
 
-DATABASES = {}
+DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+
+}
 
 
 DEBUG = False
