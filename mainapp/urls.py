@@ -1,7 +1,6 @@
 from django.urls import path, include
 from . import views
-from django.conf import settings
-from django.conf.urls import handler404, static
+from django.conf.urls import handler404
 
 handler404 = "mainapp.views.custom404"
 
@@ -16,11 +15,3 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("thanks-for-contacting/", views.thanks_for_contacting, name="thanks_for_contacting"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += [
-        path("__debug__/", include("debug_toolbar.urls")),
-        path("__reload__/", include("django_browser_reload.urls")),
-
-    ]+static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    

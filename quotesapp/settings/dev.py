@@ -5,6 +5,9 @@ SITE_NAME = "Quoteshrine"
 
 ALLOWED_HOSTS = ["*"]
 
+ROOT_URLCONF = 'quotesapp.urls_dev'
+
+
 INSTALLED_APPS+=[
     "debug_toolbar",
     "django_browser_reload",
