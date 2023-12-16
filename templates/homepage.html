@@ -1,12 +1,35 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load static i18n %}
 {% block title %}{% trans "Discover Inspirational Quotes" %}{% endblock title %}
 {% block meta_desc %}{% trans "Explore profound insights and timeless wisdom through our curated collection of quotes from renowned personalities worldwide." %}{% endblock meta_desc %}
-
+{% block custom_css_js %}<script defer src="{% static "js/htmx.js" %}"></script>{% endblock custom_css_js %}
 {% block base_content %}
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 gap-4">
   <div class="">
-    <div class="bg-green-700 mb-6 rounded-md p-3">ssc</div>
+    <div x-data="dialog()">
+    <div class=" mb-6 rounded-md p-3 md:max-w-3xl text-center self-center"><input x-spread="trigger" class="mt-0 text-xl form-input" placeholder="Search..."></div>
+        <div class="dialog" x-spread="dialog" x-cloak>
+        <div class="dialog-content">
+          <div class="dialog-header">Search Quotes
+            <button type="button" class="btn btn-light btn-sm btn-icon" aria-label="Close" @click="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+          </div>
+          <div class="dialog-body"><input name="search_term" hx-get="/search/" hx-include="[name='search_term']" hx-trigger="keydown changed delay:1s" hx-target="#results" hx-swap="innerHTML" hx-indicator="#results" class="mt-0 text-xl form-input" placeholder="Search..."></div>
+          <div class="dialog-body" id="results">
+            <div class="space-y-2" aria-live="assertive" aria-atomic="true">
+                <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
+              </div></div>
+          <div class="dialog-footer">
+            <button type="button" class="btn btn-light" @click="close">Close</button>
+            <button type="button" class="btn btn-primary">Search, or wait!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url={{request.build_absolute_uri}}&text=Read%20Inspirational%20Quotes%20at%20{{SITE_NAME}}%20which%20will%20make%20your%20day.%20Click%20here." class="md:w-36 md:my-1 md:mx-1 rounded-full btn-lg btn btn-icon btn-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
     <a target="_blank" rel="noopener" href="https://www.instagram.com/{{SITE_NAME}}" class="md:w-36 md:my-1 md:mx-1 rounded-full btn-lg btn btn-icon btn-instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
     <a target="_blank" rel="noopener" href="https://facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" class="md:w-36 md:my-1 md:mx-1 rounded-full btn-lg btn btn-icon btn-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>

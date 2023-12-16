@@ -82,3 +82,8 @@ def getQuoteOfTheDay():
     print(random_number)
     queryset = obj.values_list("quote", "author", "author__author", "topics")[random_number:random_number+10]
     return queryset
+
+
+def fetchSearchData(searchTerm, number_of_results):
+    qset = Quote.objects.filter(quote__contains=searchTerm).values_list("quote", "quote_id", "topics", "topics_id")[:number_of_results]
+    return qset

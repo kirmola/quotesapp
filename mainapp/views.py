@@ -104,3 +104,12 @@ def qotd(request):
     return render(request, "qotd.html", {
         "data":[i for i in data]
     })
+
+@require_http_methods(["GET"])
+def search(request):
+    searchTerm = request.GET["search_term"]
+    number_of_results = 10
+    results = fetchSearchData(searchTerm, number_of_results)
+    return render(request, "search.html", {
+        "results":results
+    })

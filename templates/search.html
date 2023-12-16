@@ -1,0 +1,9 @@
+{% for each in results %}
+
+<div class="card">
+    <div class="card-header">
+    <div class="font-semibold text-xl"><a href="{% url "Quote_detail" quote_url=each.1 %}" >{{each.0}}</a></div>
+    </div>
+    <div class="card-footer"><a href="{% url "Topic_detail" topic_name=each.3 %}" class="btn btn-sm btn-link">{{each.2|title}}</a></div>
+</div>
+{% endfor %}
