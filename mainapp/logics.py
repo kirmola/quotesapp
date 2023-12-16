@@ -79,7 +79,6 @@ def getQuoteOfTheDay():
     obj = Quote.objects
     total_records = len(obj.all())
     random_number = randint(0, total_records)
-    print(random_number)
     queryset = obj.values_list("quote", "author", "author__author", "topics")[random_number:random_number+10]
     return queryset
 

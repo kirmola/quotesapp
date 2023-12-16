@@ -4,16 +4,16 @@
 {% block meta_desc %}{% trans "Explore profound insights and timeless wisdom through our curated collection of quotes from renowned personalities worldwide." %}{% endblock meta_desc %}
 {% block custom_css_js %}<script defer src="{% static "js/htmx.js" %}"></script>{% endblock custom_css_js %}
 {% block base_content %}
-<div class="grid grid-cols-1 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <div class="">
     <div x-data="dialog()">
-    <div class=" mb-6 rounded-md p-3 md:max-w-3xl text-center self-center"><input x-spread="trigger" class="mt-0 text-xl form-input" placeholder="Search..."></div>
+    <div class="mb-6 rounded-md p-3 md:max-w-3xl text-center self-center"><input x-spread="trigger" class="mt-0 text-xl form-input rounded-2xl" placeholder="Search..."></div>
         <div class="dialog" x-spread="dialog" x-cloak>
         <div class="dialog-content">
           <div class="dialog-header">Search Quotes
             <button type="button" class="btn btn-light btn-sm btn-icon" aria-label="Close" @click="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
           </div>
-          <div class="dialog-body"><input name="search_term" hx-get="/search/" hx-include="[name='search_term']" hx-trigger="keydown changed delay:1s" hx-target="#results" hx-swap="innerHTML" hx-indicator="#results" class="mt-0 text-xl form-input" placeholder="Search..."></div>
+          <div class="dialog-body"><input name="search_term" hx-get="/search/" hx-include="[name='search_term']" hx-trigger="keydown changed delay:1s" hx-target="#results" hx-swap="innerHTML" hx-indicator="#results" class="mt-0 text-xl form-input rounded-2xl" placeholder="Search..."></div>
           <div class="dialog-body" id="results">
             <div class="space-y-2" aria-live="assertive" aria-atomic="true">
                 <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
