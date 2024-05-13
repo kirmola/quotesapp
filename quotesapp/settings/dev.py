@@ -1,4 +1,5 @@
 from quotesapp.base_settings import *
+import dj_database_url
 
 SITE_NAME = "Quoteshrine"
 
@@ -19,10 +20,11 @@ MIDDLEWARE+=[
 ]
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse("postgres://postgres:root@localhost:5432/quotesapp")
+
+
 }
 
 DEBUG = True
+
+NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"

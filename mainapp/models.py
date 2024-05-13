@@ -17,16 +17,16 @@ class Quote(models.Model):
                                on_delete=models.CASCADE, to_field="topic_slug")
     quote_id = ShortUUIDField(length=6, max_length=45, primary_key=True,
                               alphabet="abcdefghijklmnopqrstuvwxyz123456790", editable=False)
-    image_1 = models.ImageField(verbose_name="Image 1:", upload_to="quoteimg",
-                                height_field=None, width_field=None, max_length=None, default="default.png")
-    image_2 = models.ImageField(verbose_name="Image 2:", upload_to="quoteimg",
-                                height_field=None, width_field=None, max_length=None, default="default.png")
-    image_3 = models.ImageField(verbose_name="Image 3:", upload_to="quoteimg",
-                                height_field=None, width_field=None, max_length=None, default="default.png")
-    image_4 = models.ImageField(verbose_name="Image 4:", upload_to="quoteimg",
-                                height_field=None, width_field=None, max_length=None, default="default.png")
-    image_5 = models.ImageField(verbose_name="Image 5:", upload_to="quoteimg",
-                                height_field=None, width_field=None, max_length=None, default="default.png")
+    # image_1 = models.ImageField(verbose_name="Image 1:", upload_to="quoteimg",
+    #                             height_field=None, width_field=None, max_length=None, default="default.png")
+    # image_2 = models.ImageField(verbose_name="Image 2:", upload_to="quoteimg",
+    #                             height_field=None, width_field=None, max_length=None, default="default.png")
+    # image_3 = models.ImageField(verbose_name="Image 3:", upload_to="quoteimg",
+    #                             height_field=None, width_field=None, max_length=None, default="default.png")
+    # image_4 = models.ImageField(verbose_name="Image 4:", upload_to="quoteimg",
+    #                             height_field=None, width_field=None, max_length=None, default="default.png")
+    # image_5 = models.ImageField(verbose_name="Image 5:", upload_to="quoteimg",
+    #                             height_field=None, width_field=None, max_length=None, default="default.png")
 
     class Meta:
 
@@ -37,11 +37,11 @@ class Quote(models.Model):
     def save(self, *args, **kwargs):
         fixLenQuote = f"{slugify(self.quote.split()[:4])}-{self.quote_id}"
         self.quote_id = fixLenQuote
-        self.image_1 = f"{fixLenQuote}-1.png"
-        self.image_2 = f"{fixLenQuote}-2.png"
-        self.image_3 = f"{fixLenQuote}-3.png"
-        self.image_4 = f"{fixLenQuote}-4.png"
-        self.image_5 = f"{fixLenQuote}-5.png"
+        # self.image_1 = f"{fixLenQuote}-1.png"
+        # self.image_2 = f"{fixLenQuote}-2.png"
+        # self.image_3 = f"{fixLenQuote}-3.png"
+        # self.image_4 = f"{fixLenQuote}-4.png"
+        # self.image_5 = f"{fixLenQuote}-5.png"
 
         super().save(*args, **kwargs)
 
