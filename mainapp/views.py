@@ -4,17 +4,32 @@ from django.core.paginator import Paginator
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from .forms import SimpleContactForm
 from django.views.decorators.http import require_http_methods
+from django.views.generic import ListView
+from .models import *
 
-# Create your views here.
+
+class HomeView(ListView):
+    template_name = "homepage.html"
 
 
-def home(request):
-    topics = getTopics(10, "homepage")
-    authors = getAuthors(10, "homepage")
-    return render(request, "homepage.html", {
-        "topics":topics,
-        "authors":authors
-    })
+    def get_queryset(self):
+
+        top_10_authors = Author.objects.all()[:10].values("author", "author_slug")
+        top_10_topics = Topic.objects.all()[:10].values("topic", "topic_slug")
+
+
+        return (top_10_authors, top_10_topics)
+    
+
+class TopicListView(ListView):
+    template_name = "topics/index.html"
+    queryset = Topic.objects.all()
+
+
+class AuthorListView(ListView):
+    template_name = "authors/index.html"
+    queryset = Author.objects.all()
+    
 
 
 def authors(request, author_name=None):

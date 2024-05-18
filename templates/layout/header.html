@@ -1,4 +1,4 @@
-{% load i18n %}
+{% comment %} {% load i18n %} {% endcomment %}
 <header class="z-30 w-full px-2 py-4 bg-white sm:px-4">
     <div class="flex items-center justify-between mx-auto max-w-7xl">
       <a href="/" title="Home" class="flex items-center font-semibold text-lg bg-gradient-to-r from-purple-400 via-violet-700 to-fuchsia-700 bg-clip-text text-transparent">
@@ -14,9 +14,9 @@
           <input class="mt-0 text-sm form-input" placeholder="Search...">
         </div>
         <div class="hidden space-x-1 md:inline-flex">
-          <a href="{% url "topics" %}" class="btn btn-sm btn-link">{% trans "Topics" %}</a>
-          <a href="{% url "authors" %}" class="btn btn-sm btn-link">{% trans "Authors" %}</a>
-          <a href="{% url "qotd" %}" class="btn btn-sm btn-link">{% trans "Quote of the Day" %}</a>
+          <a href="{% url "topics" %}" class="btn btn-sm btn-link">Topics</a>
+          <a href="{% url "authors" %}" class="btn btn-sm btn-link">Authors</a>
+          <a href="{% url "qotd" %}" class="btn btn-sm btn-link">Quote of the Day</a>
           {% comment %} <a href="#" class="btn btn-sm btn-link">Blog</a>
           <a href="#" class="btn btn-sm btn-link">Company</a>
           <a href="#" class="btn btn-sm btn-link">Sign in</a> {% endcomment %}
@@ -24,15 +24,15 @@
 <div class="flex space-x-2">
   <div x-data="dropdown()">
     <button class="btn btn-outline-primary btn-sm" id="open-color-menu-small" x-spread="trigger">
-      {% trans "About" %}
+      About
       <svg class="dropdown-arrow" :class="{ 'rotate-180': open }" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
     <div class="dropdown-list" id="color-menu-small" x-spread="dropdown" x-cloak>
-      <p class="dropdown-header">{% trans "Pages" %}</p>
-      <a href="#" class="dropdown-item">{% trans "Terms" %}</a>
-      <a href="#" class="dropdown-item">{% trans "Privacy" %}</a>
+      <p class="dropdown-header">Pages</p>
+      <a href="#" class="dropdown-item">Terms</a>
+      <a href="#" class="dropdown-item">Privacy</a>
       <div class="dropdown-divide"></div>
-      <a href="{% url "contact" %}" class="dropdown-item">{% trans "Contact Us" %}</a>
+      <a href="{% url "contact" %}" class="dropdown-item">Contact Us</a>
     </div>
   </div>
 </div>
@@ -78,10 +78,10 @@
               </svg>
               <span class="sr-only">Close Menu</span>
             </button>
-            <a href="{% url "topics" %}" class="w-full btn btn-link">{% trans "Topics" %}</a>
-            <a href="{% url "authors" %}" class="w-full btn btn-link">{% trans "Authors" %}</a>
+            <a href="{% url "topics" %}" class="w-full btn btn-link">Topics</a>
+            <a href="{% url "authors" %}" class="w-full btn btn-link">Authors</a>
             <a href="{% url "contact" %}" class="w-full btn btn-link">Contact</a>
-            <a href="{% url "qotd" %}" class="w-full btn btn-link">{% trans "Quote of the Day" %}</a>
+            <a href="{% url "qotd" %}" class="w-full btn btn-link">Quote of the Day</a>
             <div class="form-icon">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>

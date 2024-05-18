@@ -34,8 +34,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("sitemap.xml", index, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.index"),
     path("sitemap-<section>.xml", sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    path("", include("mainapp.urls"))
 ]
 
-urlpatterns += i18n_patterns(
-    path("", include("mainapp.urls")),
-)
+# urlpatterns += i18n_patterns(
+#     path("", include("mainapp.urls")),
+# )

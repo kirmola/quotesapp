@@ -1,11 +1,11 @@
-{% load i18n %}
-{% load localeurl %}
+{% comment %} {% load i18n %}
+{% load localeurl %} {% endcomment %}
 {% load static tailwind_tags %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language as current_language %}
+{% comment %} {% get_available_languages as LANGUAGES %}
+{% get_current_language as current_language %} {% endcomment %}
 
 <!DOCTYPE html>
-<html lang="{{current_language}}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +14,10 @@
     <script defer src="{% static "js/main.js" %}"></script>
     {% block custom_css_js %}{% endblock custom_css_js %}
     <meta name="description" content="{% block meta_desc %}{% endblock meta_desc %}">
-    {% for lang in LANGUAGES %}
+
+    {% comment %} {% for lang in LANGUAGES %}
     <link rel="alternate" hreflang="{{ lang.0 }}" href="{% translateURL request.path lang.0 %}"/>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
     
 </head>
 <body>

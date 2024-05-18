@@ -13,12 +13,14 @@ django-htmx = "^1.17.3"
 dj-database-url = "^2.1.0"
 django-autoslug = "^1.9.9"
 shortuuid = "^1.0.13"
+pillow = "^10.3.0"
 
 
 [tool.poetry.group.dev.dependencies]
 python-dotenv = "^1.0.1"
 django-debug-toolbar = "^4.3.0"
 django-browser-reload = "^1.12.1"
+faker = "^25.2.0"
 
 [build-system]
 requires = ["poetry-core"]

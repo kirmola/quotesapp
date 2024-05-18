@@ -123,19 +123,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-LANGUAGES = [
-    ("en", _("English")),
-    ("de", _("German")),
-    ("ru", _("Russian")),
-    ("fr", _("French")),
-    ("es", _("Spanish")),
-    ("hi", _("Hindi")),
-    ("zh-cn", _("Chinese (Simplified)")),
-]
+# LANGUAGES = [
+#     ("en", _("English")),
+#     ("de", _("German")),
+#     ("ru", _("Russian")),
+#     ("fr", _("French")),
+#     ("es", _("Spanish")),
+#     ("hi", _("Hindi")),
+#     ("zh-cn", _("Chinese (Simplified)")),
+# ]
 
-LOCALE_PATHS = [
-    BASE_DIR/"locale"
-]
+# LOCALE_PATHS = [
+#     BASE_DIR/"locale"
+# ]
 
 TIME_ZONE = 'UTC'
 
