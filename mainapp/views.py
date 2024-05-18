@@ -39,7 +39,13 @@ class QuoteListOnTopicView(ListView):
 
 
     def get_queryset(self):
-        return super().get_queryset().filter(topics=self.kwargs.get("topic_name")).values("quote", "quote_id")
+        return super().get_queryset().filter(topics=self.kwargs.get("topic_name")).values("quote", "quote_id", "topics__topic")
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["topic"] = self.get_queryset().values("topics")
+    #     return context
+    
     
 class QuoteListOnAuthorView(ListView):
     model = Quote
@@ -49,7 +55,7 @@ class QuoteListOnAuthorView(ListView):
 
 
     def get_queryset(self):
-        return super().get_queryset().filter(author=self.kwargs.get("author_name")).values("quote", "quote_id")
+        return super().get_queryset().filter(author=self.kwargs.get("author_name")).values("quote", "quote_id", "author__author")
     
 
 def authors(request, author_name=None):

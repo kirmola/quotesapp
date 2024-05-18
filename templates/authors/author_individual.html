@@ -1,9 +1,9 @@
 {% extends "authors/index.html" %}
 {% comment %} {% load i18n %} {% endcomment %}
 
-{% block title %}Quotes by {{author_name}}{% endblock title %}
+{% block title %}Quotes by {{object_list.0.author__author}}{% endblock title %}
 
-{% block meta_desc %}Discover the essence of {{author_name}}'s philospohy and insights through a curated selection of memorable quotes.{% endblock meta_desc %}
+{% block meta_desc %}Discover the essence of {{object_list.0.author__author}}'s philospohy and insights through a curated selection of memorable quotes.{% endblock meta_desc %}
 
 {% block base_content %}
 
