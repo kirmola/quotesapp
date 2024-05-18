@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from .forms import SimpleContactForm
 from django.views.decorators.http import require_http_methods
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import *
 
 
@@ -23,14 +23,34 @@ class HomeView(ListView):
 
 class TopicListView(ListView):
     template_name = "topics/index.html"
-    queryset = Topic.objects.all()
+    queryset = Topic.objects.all().values("topic", "topic_slug")
 
 
 class AuthorListView(ListView):
     template_name = "authors/index.html"
-    queryset = Author.objects.all()
+    queryset = Author.objects.all().values("author", "author_slug")
     
 
+class QuoteListOnTopicView(ListView):
+    model = Quote
+    template_name = "topics/topic_individual.html"
+    slug_field = "topics"
+    slug_url_kwarg = "topic_name"
+
+
+    def get_queryset(self):
+        return super().get_queryset().filter(topics=self.kwargs.get("topic_name")).values("quote", "quote_id")
+    
+class QuoteListOnAuthorView(ListView):
+    model = Quote
+    template_name = "authors/author_individual.html"
+    slug_field = "author"
+    slug_url_kwarg = "author_name"
+
+
+    def get_queryset(self):
+        return super().get_queryset().filter(author=self.kwargs.get("author_name")).values("quote", "quote_id")
+    
 
 def authors(request, author_name=None):
     if author_name:

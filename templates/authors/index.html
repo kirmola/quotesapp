@@ -8,12 +8,10 @@
 
 
 <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
-    {% for each in data.items %}
+    {% for each in object_list %}
     <ul class="list list-flush">
-        <div class="text-center md:text-left font-semibold">{{each.0|title}} Authors</div>
-        {% for title,url in each.1.items %}
-        <li class="list-item md:p-2"><a href="{{url}}/">{{title|title}}</a></li>
-        {% endfor %}
+        {% comment %} <div class="text-center md:text-left font-semibold">{{each.0|title}} Authors</div> {% endcomment %}
+        <li class="list-item md:p-2"><a class="btn btn-outline-primary w-full" href="{% url "Author_detail" author_name=each.author_slug %}">{{each.author|title}}</a></li>
     </ul>
     {% endfor %}
 </div>  

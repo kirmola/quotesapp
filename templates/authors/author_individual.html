@@ -8,11 +8,10 @@
 {% block base_content %}
 
 <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
-        
-    {% for each in quotes_collection %}
-        <a class="card" href="{% url "Quote_detail" quote_url=each.1 %}">
+    {% for each in object_list %}
+        <a class="card" href="{% url "Quote_detail" quote_url=each.quote_id %}">
             <div class="card-body">
-                <p>{{each.0}}</p>
+                <p>{{each.quote}}</p>
             </div>
         </a>
     {% endfor %}

@@ -1,7 +1,7 @@
 {% extends "topics/index.html" %}
 {% comment %} {% load i18n %} {% endcomment %}
 
-{% block title %}{{topic_name}} Quotes{% endblock title %}
+{% block title %}{{object}} Quotes{% endblock title %}
 
 {% block meta_desc %}Immerse yourself in the beauty of words that capture the essence of {{topic_name}}, offering moments of reflection and motivation{% endblock meta_desc %}
 
@@ -9,13 +9,12 @@
 
 
     <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
-        
-        {% for each in quotes_collection %}
-            <a class="card" href="{% url "Quote_detail" quote_url=each.quote_id %}">
-                <div class="card-body">
-                    <p>{{each.quote}}</p>
-                </div>
-            </a>
+        {% for each in object_list %}
+        <a class="card" href="{% url "Quote_detail" quote_url=each.quote_id %}">
+            <div class="card-body">
+                <p>{{each.quote}}</p>
+            </div>
+        </a>
         {% endfor %}
     </div>
   

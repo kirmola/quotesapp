@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         fake = Faker()
 
-        for _ in range(5):
+        for _ in range(50):
             author_name = fake.name()
             author_instance, _ = Author.objects.get_or_create(author=author_name)
 
