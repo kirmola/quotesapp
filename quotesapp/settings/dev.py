@@ -1,7 +1,7 @@
 from quotesapp.base_settings import *
 import dj_database_url
 
-SITE_NAME = "Quoteshrine"
+SITE_NAME = "QuotesApp"
 
 
 ALLOWED_HOSTS = ["*"]
