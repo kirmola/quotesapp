@@ -20,9 +20,10 @@ MIDDLEWARE+=[
 ]
 
 DATABASES = {
-    'default': dj_database_url.parse("postgres://postgres:root@localhost:5432/quotesapp")
-
-
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "quotes.sqlite3",
+    }
 }
 
 DEBUG = True
