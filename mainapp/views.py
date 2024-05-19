@@ -31,7 +31,7 @@ class AuthorListView(ListView):
     queryset = Author.objects.all().values("author", "author_slug")
     
 
-class QuoteListOnTopicView(ListView):
+class TopicDetailView(ListView):
     model = Quote
     template_name = "topics/topic_individual.html"
     slug_field = "topics"
@@ -39,15 +39,16 @@ class QuoteListOnTopicView(ListView):
 
 
     def get_queryset(self):
-        return super().get_queryset().filter(topics=self.kwargs.get("topic_name")).values("quote", "quote_id", "topics__topic")
+        return super().get_queryset().filter(topics__topic_slug=self.kwargs.get("topic_name")).values("quote", "quote_id").all()    
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["topic"] = self.get_queryset().values("topics")
-    #     return context
-    
-    
-class QuoteListOnAuthorView(ListView):
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["current_topic"] = super().get_queryset().filter(topics__topic_slug=self.kwargs.get("topic_name")).distinct().values("topics__topic").get()["topics__topic"]
+        return context
+        
+
+class QuoteDetailView(ListView):
     model = Quote
     template_name = "authors/author_individual.html"
     slug_field = "author"
@@ -55,7 +56,13 @@ class QuoteListOnAuthorView(ListView):
 
 
     def get_queryset(self):
-        return super().get_queryset().filter(author=self.kwargs.get("author_name")).values("quote", "quote_id", "author__author")
+        return super().get_queryset().filter(author__author_slug=self.kwargs.get("author_name")).values("quote", "quote_id").all()
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["current_author"] = super().get_queryset().filter(author__author_slug=self.kwargs.get("author_name")).distinct().values("author__author").get()["author__author"]
+        return context
     
 
 def authors(request, author_name=None):
