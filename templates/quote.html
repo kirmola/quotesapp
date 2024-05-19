@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{author_title}} | {{quote|truncatewords:6}}{% endblock title %}
+{% block title %}{{object.author}} | {{quote|truncatewords:6}}{% endblock title %}
 {% block meta_desc %}{{quote|truncatechars:150}}{% endblock meta_desc %}
 
 {% block custom_css_js %}
