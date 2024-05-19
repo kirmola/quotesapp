@@ -9,13 +9,20 @@
 <div class="mb-5 py-2 rounded-lg text-center bg-primary-light text-primary">{% now "DATE_FORMAT" %}</div>
 
 <div class="md:mx-48 grid gap-4">
-    {% for each in data %}
+    
+    <div class="my-4">
+        <blockquote>
+            <h1 class=" bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent text-lg md:text-2xl font-bold border-2 rounded-lg p-6">{{object_list}}</h1>
+        </blockquote>
+    </div>      
+
+    {% for each in extra_quotes %}
         <div class="card">
             <div class="card-header">
-            <div class="font-semibold text-xl text-primary">{{each.3|title}} Quote of the Day</div>
+            <div class="font-semibold text-xl text-primary"><a href="{% url "Topic_detail" topic_name=each.topics %}">{{each.topics__topic}} Quote of the Day</a></div>
             </div>
-            <div class="card-body md:text-xl">{{each.0}}</div>
-            <div class="card-footer"><a href="{% url "Author_detail" author_name=each.1 %}" class="btn btn-sm btn-link">{{each.2}}</a></div>
+            <div class="card-body md:text-xl"><blockquote><a href="{% url "Quote_detail" quote_url=each.quote_id %}">{{each.quote}}</a></blockquote></div>
+            <div class="card-footer"><a href="{% url "Author_detail" author_name=each.author %}" class="btn btn-sm btn-link">{{each.author__author}}</a></div>
         </div>
         
         {% endfor %}

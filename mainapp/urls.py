@@ -8,7 +8,7 @@ handler404 = "mainapp.views.custom404"
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
-    path("quote-of-the-day/", views.qotd, name="qotd"),
+    path("quote-of-the-day/", Qotd.as_view(), name="qotd"),
     path("topics/", TopicListView.as_view(), name="topics"),
     path("authors/", AuthorListView.as_view(), name="authors"),
     path("quote/<slug:quote_url>/", QuoteView.as_view(), name="Quote_detail"),

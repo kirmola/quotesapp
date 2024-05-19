@@ -80,6 +80,18 @@ class QuoteDetailView(ListView):
         return context
 
 
+class Qotd(ListView):
+    template_name = "qotd.html"
+    model = Quote
+    queryset = Quote.objects.order_by("?").first()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["extra_quotes"] = Quote.objects.order_by("?").values("quote", "quote_id","author__author", "topics__topic", "author", "topics").all()[:10]
+        return context
+    
+
+
 def quote(request, quote_url):
     verifyQuoteURL(quote_url)
     data = getQuoteData(quote_url, 10)
@@ -127,12 +139,6 @@ def thanks_for_contacting(request):
 def custom404(request, exception):
     return render(request, "404.html", status=404)
 
-
-def qotd(request):
-    data = getQuoteOfTheDay()
-    return render(request, "qotd.html", {
-        "data":[i for i in data]
-    })
 
 @require_http_methods(["GET"])
 def search(request):
