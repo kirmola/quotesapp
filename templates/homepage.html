@@ -6,27 +6,13 @@
 {% block base_content %}
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <div class="">
-    <div x-data="dialog()">
-    <div class="mb-6 rounded-md p-3 md:max-w-3xl text-center self-center"><input x-spread="trigger" class="mt-0 text-xl form-input rounded-2xl" placeholder="Search..."></div>
-        <div class="dialog" x-spread="dialog" x-cloak>
-        <div class="dialog-content">
-          <div class="dialog-header">Search Quotes
-            <button type="button" class="btn btn-light btn-sm btn-icon" aria-label="Close" @click="close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-          </div>
-          <div class="dialog-body"><input name="search_term" hx-get="/search/" hx-include="[name='search_term']" hx-trigger="keydown changed delay:1s" hx-target="#results" hx-swap="innerHTML" hx-indicator="#results" class="mt-0 text-xl form-input rounded-2xl" placeholder="Search..."></div>
-          <div class="dialog-body" id="results">
-            <div class="space-y-2" aria-live="assertive" aria-atomic="true">
-                <div class="w-9/12 h-4 bg-gray-200 rounded animate-pulse"></div>
-                <div class="w-11/12 h-4 bg-gray-200 rounded animate-pulse"></div>
-                <div class="w-8/12 h-4 bg-gray-200 rounded animate-pulse"></div>
-              </div></div>
-          <div class="dialog-footer">
-            <button type="button" class="btn btn-light" @click="close">Close</button>
-            <button type="button" class="btn btn-primary">Search, or wait!</button>
-          </div>
-        </div>
-      </div>
+    <div class="mb-6 rounded-md p-3 md:max-w-3xl text-center self-center">
+      {% comment %} <input class="mt-0 text-xl form-input rounded-2xl" placeholder="Search..."> {% endcomment %}
+      <script async src="https://cse.google.com/cse.js?cx=81d78d0c79b38445f">
+      </script>
+      <div class="gcse-search"></div>
     </div>
+        
 
 
 
@@ -35,6 +21,8 @@
     <a target="_blank" rel="noopener" href="" class="md:w-36 md:my-1 md:mx-1 rounded-full btn-lg btn btn-icon btn-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
     <a target="_blank" rel="noopener" href="" class="md:w-36 md:my-1 md:mx-1 rounded-full btn-lg btn btn-icon btn-google"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.283,10.356h-8.327v3.451h4.792c-0.446,2.193-2.313,3.453-4.792,3.453c-2.923,0-5.279-2.356-5.279-5.28	c0-2.923,2.356-5.279,5.279-5.279c1.259,0,2.397,0.447,3.29,1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233	c-4.954,0-8.934,3.979-8.934,8.934c0,4.955,3.979,8.934,8.934,8.934c4.467,0,8.529-3.249,8.529-8.934	C20.485,11.453,20.404,10.884,20.283,10.356z"/></svg></a>
   </div>
+
+
   <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
     <ul class="list">
       {% for each in object_list.0 %}
