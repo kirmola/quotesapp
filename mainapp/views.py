@@ -43,6 +43,7 @@ class QuoteView(DetailView):
         context = super().get_context_data(**kwargs)
         context["topics"] = Topic.objects.order_by("?").all()[:10]
         context["authors"] = Author.objects.order_by("?").all()[:10]
+        context["quotes"] = Quote.objects.order_by("?").all()[:10]
         return context
     
 
