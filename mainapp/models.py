@@ -5,7 +5,6 @@ from autoslug import AutoSlugField
 from shortuuid.django_fields import ShortUUIDField
 from django.utils.text import slugify
 
-# Create your models here.
 
 
 class Quote(models.Model):
@@ -17,16 +16,7 @@ class Quote(models.Model):
                                on_delete=models.CASCADE, to_field="topic_slug")
     quote_id = ShortUUIDField(length=6, max_length=45, primary_key=True,
                               alphabet="abcdefghijklmnopqrstuvwxyz123456790", editable=False)
-    # image_1 = models.ImageField(verbose_name="Image 1:", upload_to="quoteimg",
-    #                             height_field=None, width_field=None, max_length=None, default="default.png")
-    # image_2 = models.ImageField(verbose_name="Image 2:", upload_to="quoteimg",
-    #                             height_field=None, width_field=None, max_length=None, default="default.png")
-    # image_3 = models.ImageField(verbose_name="Image 3:", upload_to="quoteimg",
-    #                             height_field=None, width_field=None, max_length=None, default="default.png")
-    # image_4 = models.ImageField(verbose_name="Image 4:", upload_to="quoteimg",
-    #                             height_field=None, width_field=None, max_length=None, default="default.png")
-    # image_5 = models.ImageField(verbose_name="Image 5:", upload_to="quoteimg",
-    #                             height_field=None, width_field=None, max_length=None, default="default.png")
+    images = models.JSONField(_("Images"), default=list)
 
     class Meta:
 

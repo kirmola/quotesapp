@@ -31,6 +31,21 @@ class AuthorListView(ListView):
     queryset = Author.objects.all().values("author", "author_slug")
     
 
+class QuoteView(DetailView):
+    model = Quote
+    template_name = "quote.html"
+    slug_field = "quote_id"
+    
+    slug_url_kwarg = "quote_url"
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["topics"] = Topic.objects.order_by("?").all()[:10]
+        context["authors"] = Author.objects.order_by("?").all()[:10]
+        return context
+    
+
 class TopicDetailView(ListView):
     model = Quote
     template_name = "topics/topic_individual.html"
@@ -63,40 +78,6 @@ class QuoteDetailView(ListView):
         context = super().get_context_data(**kwargs)
         context["current_author"] = super().get_queryset().filter(author__author_slug=self.kwargs.get("author_name")).distinct().values("author__author").get()["author__author"]
         return context
-    
-
-def authors(request, author_name=None):
-    if author_name:
-        verifyAuthor(author_name)
-        quotes_collection = getQuotesByAuthor(author_name)
-        author_name = getAuthorTitle(author_name)
-        return render(request, "authors/author_individual.html", {
-            "quotes_collection": quotes_collection,
-            "author_name": author_name[0],
-        })
-    else:
-        data = getAuthors(10)
-        parsedData = {each:{k:v for k,v in data if str(v)[0] == each} for each in ascii_lowercase}
-        return render(request, "authors/index.html", {
-            "data": parsedData,
-        })
-
-
-def topics(request, topic_name=None):
-    if topic_name:
-        verifyTopic(topic_name)
-        quotes_collection = getQuotesByTopic(topic_name)
-        topic_name = getTopicTitle(topic_name)
-        return render(request, "topics/topic_individual.html", {
-            "topic_name": topic_name[0],
-            "quotes_collection": quotes_collection
-        })
-    else:
-        data = getTopics(10)
-        parsedData = {each:{k:v for k,v in data if str(v)[0] == each} for each in ascii_lowercase}
-        return render(request, "topics/index.html", {
-            "data": parsedData,
-        })
 
 
 def quote(request, quote_url):
