@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'django.contrib.sites',
 ]+[
     "mainapp",
     "tailwind",
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
     "django_htmx",
 
 ]
+
+SITE_ID = 1
 
 INTERNAL_IPS = [
     "127.0.0.1",
