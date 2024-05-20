@@ -52,6 +52,10 @@ class TopicDetailView(ListView):
     template_name = "topics/topic_individual.html"
     slug_field = "topics"
     slug_url_kwarg = "topic_name"
+    paginate_by = 15
+
+
+    
 
 
     def get_queryset(self):
@@ -60,7 +64,7 @@ class TopicDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["current_topic"] = super().get_queryset().filter(topics__topic_slug=self.kwargs.get("topic_name")).distinct().values("topics__topic").get()["topics__topic"]
+        context["current_topic"] = super().get_queryset().filter(topics__topic_slug=self.kwargs.get("topic_name")).distinct().values("topics__topic", "topics").get()
         return context
         
 
@@ -69,6 +73,7 @@ class QuoteDetailView(ListView):
     template_name = "authors/author_individual.html"
     slug_field = "author"
     slug_url_kwarg = "author_name"
+    paginate_by = 15
 
 
     def get_queryset(self):
@@ -77,7 +82,7 @@ class QuoteDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["current_author"] = super().get_queryset().filter(author__author_slug=self.kwargs.get("author_name")).distinct().values("author__author").get()["author__author"]
+        context["current_author"] = super().get_queryset().filter(author__author_slug=self.kwargs.get("author_name")).distinct().values("author__author", "author").get()
         return context
 
 

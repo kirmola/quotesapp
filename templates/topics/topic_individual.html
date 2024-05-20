@@ -1,9 +1,9 @@
 {% extends "topics/index.html" %}
 {% comment %} {% load i18n %} {% endcomment %}
 
-{% block title %}{{current_topic}} Quotes{% endblock title %}
+{% block title %}{{current_topic.topics__topic}} Quotes | Page {{page_obj.number}} of {{paginator.num_pages}}{% endblock title %}
 
-{% block meta_desc %}Immerse yourself in the beauty of words that capture the essence of {{current_topic}}, offering moments of reflection and motivation{% endblock meta_desc %}
+{% block meta_desc %}Immerse yourself in the beauty of words that capture the essence of {{current_topic.topics__topic}}, offering moments of reflection and motivation. This page is page {{page_obj.number}} of {{paginator.num_pages}}.{% endblock meta_desc %}
 
 {% block base_content %}
     <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
@@ -15,6 +15,31 @@
         </a>
         {% endfor %}
     </div>
-  
-
+    <div class="my-6">
+        <div class="font-bold text-center mb-2">Page {{page_obj.number}} of {{paginator.num_pages}}</div>
+        <div class="space-y-2">
+            <nav class="pagination pagination-lg justify-center" role="navigation" aria-label="pagination">
+                <!-- Previous page link -->
+                {% if page_obj.has_previous %}
+                    {% comment %} <a href="?page=1" class="pagination-link" aria-label="Goto first page">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </a> {% endcomment %}
+                    <a href="{% url "topic_paginator" page=page_obj.previous_page_number topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto previous page">{{ page_obj.previous_page_number }}</a>
+                {% endif %}
+        
+                <!-- Current page -->
+                <span class="pagination-link is-current pagination-active" aria-label="Page {{ page_obj.number }}">{{ page_obj.number }}</span>
+                <!-- Next page link -->
+                {% if page_obj.has_next %}
+                    <a href="{% url "topic_paginator" page=page_obj.next_page_number topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto next page">{{ page_obj.next_page_number }}</a>
+                    <span class="pagination-disabled" tabindex="-1">&hellip;</span>
+                    <a href="{% url "topic_paginator" page=paginator.num_pages topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto last page">{{ paginator.num_pages }}</a>
+                {% endif %}
+                
+            </nav>
+        </div>
+    </div>
+    
 {% endblock base_content %}
