@@ -1,45 +1,99 @@
-{% extends "topics/index.html" %}
+{% extends 'topics/index.html' %}
 {% comment %} {% load i18n %} {% endcomment %}
 
-{% block title %}{{current_topic.topics__topic}} Quotes | Page {{page_obj.number}} of {{paginator.num_pages}}{% endblock title %}
+{% block title %}
+  {{ current_topic.topics__topic }} Quotes | Page {{ page_obj.number }} of {{ paginator.num_pages }}
+{% endblock %}
 
-{% block meta_desc %}Immerse yourself in the beauty of words that capture the essence of {{current_topic.topics__topic}}, offering moments of reflection and motivation. This page is page {{page_obj.number}} of {{paginator.num_pages}}.{% endblock meta_desc %}
+{% block meta_desc %}
+  Immerse yourself in the beauty of words that capture the essence of {{ current_topic.topics__topic }}, offering moments of reflection and motivation. This page is page {{ page_obj.number }} of {{ paginator.num_pages }}.
+{% endblock %}
 
 {% block base_content %}
-    <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
-        {% for each in object_list %}
-        <a class="card" href="{% url "Quote_detail" quote_url=each.quote_id %}">
-            <div class="card-body">
-                <p>{{each.quote}}</p>
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-    <div class="my-6">
-        <div class="font-bold text-center mb-2">Page {{page_obj.number}} of {{paginator.num_pages}}</div>
-        <div class="space-y-2">
-            <nav class="pagination pagination-lg justify-center" role="navigation" aria-label="pagination">
-                <!-- Previous page link -->
-                {% if page_obj.has_previous %}
-                    {% comment %} <a href="?page=1" class="pagination-link" aria-label="Goto first page">
-                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </a> {% endcomment %}
-                    <a href="{% url "topic_paginator" page=page_obj.previous_page_number topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto previous page">{{ page_obj.previous_page_number }}</a>
-                {% endif %}
-        
-                <!-- Current page -->
-                <span class="pagination-link is-current pagination-active" aria-label="Page {{ page_obj.number }}">{{ page_obj.number }}</span>
-                <!-- Next page link -->
-                {% if page_obj.has_next %}
-                    <a href="{% url "topic_paginator" page=page_obj.next_page_number topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto next page">{{ page_obj.next_page_number }}</a>
-                    <span class="pagination-disabled" tabindex="-1">&hellip;</span>
-                    <a href="{% url "topic_paginator" page=paginator.num_pages topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto last page">{{ paginator.num_pages }}</a>
-                {% endif %}
-                
-            </nav>
+  <div class="grid grid-cols-1 gap-3 md:grid-cols-3">
+    {% for each in object_list %}
+      <div class="card">
+        <div class="card-body">
+          <p class="md:p-4 md:text-xl text-lg text-justify">
+            <a target="_blank" class="no-underline" href="{% url 'Quote_detail' quote_url=each.quote_id %}">{{ each.quote }}</a>
+          </p>
+          <div class="text-center md:hidden p-4">
+            <a target="_blank" rel="noopener" href="//x.com/intent/tweet?url=" class="mx-2 btn btn-icon btn-twitter">
+                <svg width="24" height="24" viewBox="0 0 300 271" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/>
+                  </svg>
+                  
+            </a>
+            <a target="_blank" rel="noopener" href="https://instagram.com/quoteshrine" class="mx-2 btn btn-icon btn-instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a target="_blank" rel="noopener" href="#" class="mx-2 btn btn-icon btn-facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
         </div>
+
+        <div class="justify-between card-footer">
+          {% comment %} <a class="btn rounded-full btn-light-primary btn-sm" href="">{{ each }}</a> {% endcomment %}
+          <div class="hidden md:block">
+            <a target="_blank" rel="noopener" href="//x.com/intent/tweet?url=" class="btn btn-icon btn-twitter">
+                <svg width="24" height="24" viewBox="0 0 300 271" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"/>
+                  </svg>
+                  
+            </a>
+            <a target="_blank" rel="noopener" href="https://instagram.com/quoteshrine" class="btn btn-icon btn-instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a target="_blank" rel="noopener" href="#" class="btn btn-icon btn-facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} <a class="card" href="{% url 'Quote_detail' quote_url=each.quote_id %}">
+        <div class="card-body">
+          <p>{{ each.quote }}</p>
+        </div>
+      </a> {% endcomment %}
+    {% endfor %}
+  </div>
+  <div class="my-6">
+    <div class="font-bold text-center mb-2">Page {{ page_obj.number }} of {{ paginator.num_pages }}</div>
+    <div class="space-y-2">
+      <nav class="pagination pagination-lg justify-center" role="navigation" aria-label="pagination">
+        <!-- Previous page link -->
+        {% if page_obj.has_previous %}
+          {% comment %} <a href="?page=1" class="pagination-link" aria-label="Goto first page">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </a> {% endcomment %}
+          <a href="{% url 'topic_paginator' page=page_obj.previous_page_number topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto previous page">{{ page_obj.previous_page_number }}</a>
+        {% endif %}
+
+        <!-- Current page -->
+        <span class="pagination-link is-current pagination-active" aria-label="Page {{ page_obj.number }}">{{ page_obj.number }}</span>
+        <!-- Next page link -->
+        {% if page_obj.has_next %}
+          <a href="{% url 'topic_paginator' page=page_obj.next_page_number topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto next page">{{ page_obj.next_page_number }}</a>
+          <span class="pagination-disabled" tabindex="-1">&hellip;</span>
+          <a href="{% url 'topic_paginator' page=paginator.num_pages topic_name=current_topic.topics %}" class="pagination-link" aria-label="Goto last page">{{ paginator.num_pages }}</a>
+        {% endif %}
+      </nav>
     </div>
-    
-{% endblock base_content %}
+  </div>
+{% endblock %}
