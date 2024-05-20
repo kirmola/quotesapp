@@ -11,10 +11,10 @@ urlpatterns = [
     path("quote-of-the-day/", Qotd.as_view(), name="qotd"),
     path("topics/", TopicListView.as_view(), name="topics"),
     path("authors/", AuthorListView.as_view(), name="authors"),
-    path("quote/<slug:quote_url>/", QuoteView.as_view(), name="Quote_detail"),
     path("topics/<slug:topic_name>/", TopicDetailView.as_view(), name="Topic_detail"),
     path("authors/<slug:author_name>/", QuoteDetailView.as_view(), name="Author_detail"),
     path("contact/", views.contact, name="contact"),
-    path("search/", views.search, name="search"),
-    path("thanks-for-contacting/", views.thanks_for_contacting, name="thanks_for_contacting"),
+    # path("search/", views.search, name="search"),
+    # path("thanks-for-contacting/", views.thanks_for_contacting, name="thanks_for_contacting"),
+    path("<slug:quote_url>/", QuoteView.as_view(), name="Quote_detail"),
 ]
