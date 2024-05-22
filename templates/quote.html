@@ -11,7 +11,7 @@
 {% endblock custom_css_js %}
 
 {% block base_content %}
-<div class="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 grid-rows-1 gap-6">
    <div class="p-2">
       <div class="card">
          <div class="card-body">
@@ -25,22 +25,6 @@
                        <img class="w-full h-auto rounded-md" src="{% get_media_prefix %}{{j}}" alt="Small Image">
                      </a>
                   {% endfor %}
-                  {% comment %} <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{images.1}}" data-fancybox="gallery" >
-
-                     <img src="{% get_media_prefix %}{{images.1}}" alt="Small Image 1">
-                  </a>
-                  <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{images.2}}" data-fancybox="gallery" >
-
-                     <img src="{% get_media_prefix %}{{images.2}}" alt="Small Image 2">
-                  </a>
-                  <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{images.3}}" data-fancybox="gallery" >
-
-                     <img src="{% get_media_prefix %}{{images.3}}" alt="Small Image 3">
-                  </a>
-                  <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{images.4}}" data-fancybox="gallery" >
-                     
-                     <img src="{% get_media_prefix %}{{images.4}}" alt="Small Image 3">
-                  </a> {% endcomment %}
                </div>
             </div>     
          </div>
@@ -88,37 +72,60 @@
          </div>
       </div>
    </div>
-   <div class="p-2 order-4 md:order-4">Custom Data</div>    
-</div>
+   <div class="p-2 order-4 md:order-4">
+      
+      <div class="flex justify-between">
+                  <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{object.quote_id}}-2.png" data-fancybox="gallery" >
 
-<div class="text-center font-bold p-4 text-xl md:text-4xl">Quotes Worth Reading..</div>
+                     <img class="rounded-md" src="{% get_media_prefix %}{{object.quote_id}}-2-thumb.png" alt="Small Image 2">
+                  </a>
+                  {% comment %} <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{object.quote_id}}-2.png" data-fancybox="gallery" >
 
-<div class="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-4">
-
-   {% for eachquote in quotes %}
-      <div class="card">
-         <div class="card-body">
-            <p class="md:p-4 md:text-xl text-lg text-justify">
-               <a target="_blank" class="no-underline" href="{% url "Quote_detail" quote_url=eachquote.quote_id %}">{{eachquote}}</a>
-            </p>
-            <div class="text-center md:hidden p-4">
-               <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=" class="mx-2 btn btn-icon btn-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-               <a target="_blank" rel="noopener" href="" class="mx-2 btn btn-icon btn-instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-               <a target="_blank" rel="noopener" href="#" class="mx-2 btn btn-icon btn-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>           
-            </div>
-         </div>
-
-         <div class="justify-between card-footer">
-            <a class="btn rounded-full btn-light-primary btn-sm" href="{% url "Author_detail" author_name=eachquote.author_id %}">{{eachquote.author}}</a>
-            <div class="hidden md:block">
-               <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=" class="btn btn-icon btn-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-               <a target="_blank" rel="noopener" href="" class="btn btn-icon btn-instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-               <a target="_blank" rel="noopener" href="#" class="btn btn-icon btn-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>           
-            </div>
-         </div>
+                     <img class="rounded-md" src="{% get_media_prefix %}{{object.quote_id}}-2-thumb.png" alt="Small Image 3">
+                  </a>
+                  <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{object.quote_id}}-1.png" data-fancybox="gallery" >
+                     
+                     <img class="rounded-md" src="{% get_media_prefix %}{{object.quote_id}}-1-thumb.png" alt="Small Image 3">
+                  </a>
+                  <a class="rounded-md w-1/4 mx-0.5" href="{% get_media_prefix %}{{object.quote_id}}-1.png" data-fancybox="gallery" >
+                     
+                     <img class="rounded-md" src="{% get_media_prefix %}{{object.quote_id}}-1-thumb.png" alt="Small Image 3">
+                  </a> {% endcomment %}
       </div>
-   {% endfor %}
 
+   </div>    
+</div>
+<div class="mt-10">
+
+   <div class="text-center font-bold p-4 text-2xl md:text-4xl">Quotes Worth Reading..</div>
+   
+   <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-4">
+   
+      {% for eachquote in quotes %}
+         <div class="card">
+            <div class="card-body">
+               <p class="md:p-4 md:text-xl text-lg text-justify">
+                  <a target="_blank" class="no-underline" href="{% url "Quote_detail" quote_url=eachquote.quote_id %}">{{eachquote}}</a>
+               </p>
+               <div class="text-center md:hidden p-4">
+                  <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=" class="mx-2 btn btn-icon btn-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                  <a target="_blank" rel="noopener" href="" class="mx-2 btn btn-icon btn-instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                  <a target="_blank" rel="noopener" href="#" class="mx-2 btn btn-icon btn-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>           
+               </div>
+            </div>
+   
+            <div class="justify-between card-footer">
+               <a class="btn rounded-full btn-light-primary btn-sm" href="{% url "Author_detail" author_name=eachquote.author_id %}">{{eachquote.author}}</a>
+               <div class="hidden md:block">
+                  <a target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=" class="btn btn-icon btn-twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                  <a target="_blank" rel="noopener" href="" class="btn btn-icon btn-instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                  <a target="_blank" rel="noopener" href="#" class="btn btn-icon btn-facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>           
+               </div>
+            </div>
+         </div>
+      {% endfor %}
+   
+   </div>
 </div>
 <script>
    Fancybox.bind("[data-fancybox]", {

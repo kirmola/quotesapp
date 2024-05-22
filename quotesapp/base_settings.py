@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     "theme",
     "django_htmx",
 
+]+[
+    "django_minify_html",
+
 ]
 
 SITE_ID = 1
@@ -72,6 +75,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]+[
     "django_htmx.middleware.HtmxMiddleware",
+    "django_minify_html.middleware.MinifyHtmlMiddleware",
+
 ]
 
 TEMPLATES = [
