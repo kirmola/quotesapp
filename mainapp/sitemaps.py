@@ -5,6 +5,7 @@ from django.urls import reverse
 class QuoteSitemap(Sitemap):
     
     limit = 50000
+    protocol = "https"
 
     def items(self):
         return Quote.objects.all()
@@ -12,6 +13,7 @@ class QuoteSitemap(Sitemap):
 class AuthorSitemap(Sitemap):
     
     limit = 50000
+    protocol = "https"
 
     def items(self):
         return Author.objects.all()
@@ -19,6 +21,7 @@ class AuthorSitemap(Sitemap):
 class TopicSitemap(Sitemap):
     
     limit = 50000
+    protocol = "https"
 
     def items(self):
         return Topic.objects.all()
