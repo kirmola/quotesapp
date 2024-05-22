@@ -20,6 +20,8 @@ from quotesapp import views
 from django.contrib.sitemaps.views import sitemap, index
 from mainapp.sitemaps import *
 from django.conf.urls.i18n import i18n_patterns
+from django_distill import distill_path
+from mainapp.distill import (get_sitemap, get_sitemap_index)
 
 
 sitemaps={
@@ -30,10 +32,10 @@ sitemaps={
 
 
 urlpatterns = [
-    path("robots.txt", views.robots, name="robots"),
+    distill_path("robots.txt", views.robots, name="robots"),
     path('admin/', admin.site.urls),
-    path("sitemap.xml", index, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.index"),
-    path("sitemap-<section>.xml", sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    distill_path("sitemap.xml", index, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.index"),
+    distill_path("sitemap-<section>.xml", sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap", distill_func=get_sitemap_index),
     path("", include("mainapp.urls"))
 ]
 

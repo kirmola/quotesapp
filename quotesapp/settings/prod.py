@@ -5,7 +5,7 @@ ALLOWED_HOSTS = ["*"]
 
 ROOT_URLCONF = 'quotesapp.urls'
 
-SITE_NAME = "Quoteshrine"
+SITE_NAME = "QuotesApp"
 
 INSTALLED_APPS+=[
 
@@ -21,7 +21,7 @@ MIDDLEWARE+=[
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "quotesdb.sqlite3",
+        "NAME": "quotes.sqlite3",
     }
 }
 
