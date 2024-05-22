@@ -1,5 +1,6 @@
 from .models import *
 from django.core.paginator import Paginator, Page
+from string import ascii_lowercase
 
 
 def get_quotes():
@@ -64,5 +65,10 @@ def get_sitemap_index():
         }
 
 
-def get_sitemap():
-    pass
+
+
+def get_alphabets():
+    for i in ascii_lowercase:
+        yield {
+            "alphabet": i
+        }
