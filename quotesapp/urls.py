@@ -21,7 +21,7 @@ from django.contrib.sitemaps.views import sitemap, index
 from mainapp.sitemaps import *
 from django.conf.urls.i18n import i18n_patterns
 from django_distill import distill_path
-from mainapp.distill import (get_sitemap, get_sitemap_index)
+from mainapp.distill import (get_sitemap_index)
 
 
 sitemaps={
