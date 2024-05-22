@@ -15,7 +15,7 @@
       <div class="card">
         <div class="card-body">
           <p class="md:p-4 md:text-xl text-lg text-justify">
-            <a target="_blank" class="no-underline" href="{% url 'Quote_detail' quote_url=each.quote_id %}">{{ each.quote }}</a>
+            <a class="no-underline" href="{% url 'Quote_detail' quote_url=each.quote_id %}">{{ each.quote }}</a>
           </p>
           <div class="text-center md:hidden p-4">
             <a target="_blank" rel="noopener" href="//x.com/intent/post?url=https://quotes.kirmola.dev{% url 'Quote_detail' quote_url=each.quote_id %}&text=Read+this+awesome+quote+by+{{ current_author.author__author }}" class="mx-2 btn btn-icon btn-twitter">
@@ -75,25 +75,43 @@
   <div class="my-6">
     <div class="font-bold text-center mb-2">Page {{ page_obj.number }} of {{ paginator.num_pages }}</div>
     <div class="space-y-2">
-      <nav class="pagination pagination-lg justify-center" role="navigation" aria-label="pagination">
+      <nav class="overflow-auto pagination pagination-lg justify-center" role="navigation" aria-label="pagination">
+
+        {% for each in page_obj.paginator.page_range %}
+
+          {% if each == page_obj.number %}
+          
+            <a href="{% url 'author_paginator' page=each author_name=current_author.author %}" class="pagination-link pagination-active">{{each}}</a>
+
+          {% else %}
+
+            <a href="{% url 'author_paginator' page=each author_name=current_author.author %}" class="pagination-link">{{each}}</a>
+          
+          {% endif %}
+        
+        {% endfor %}
+
+
+
         <!-- Previous page link -->
-        {% if page_obj.has_previous %}
-          {% comment %} <a href="?page=1" class="pagination-link" aria-label="Goto first page">
+        {% comment %} {% if page_obj.has_previous %}
+          <a href="?page=1" class="pagination-link" aria-label="Goto first page">
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
-          </a> {% endcomment %}
+          </a>
           <a href="{% url 'author_paginator' page=page_obj.previous_page_number author_name=current_author.author %}" class="pagination-link" aria-label="Goto previous page">{{ page_obj.previous_page_number }}</a>
         {% endif %}
 
         <!-- Current page -->
         <span class="pagination-link is-current pagination-active" aria-label="Page {{ page_obj.number }}">{{ page_obj.number }}</span>
         <!-- Next page link -->
+
         {% if page_obj.has_next %}
           <a href="{% url 'author_paginator' page=page_obj.next_page_number author_name=current_author.author %}" class="pagination-link" aria-label="Goto next page">{{ page_obj.next_page_number }}</a>
           <span class="pagination-disabled" tabindex="-1">&hellip;</span>
           <a href="{% url 'author_paginator' page=paginator.num_pages author_name=current_author.author %}" class="pagination-link" aria-label="Goto last page">{{ paginator.num_pages }}</a>
-        {% endif %}
+        {% endif %} {% endcomment %}
       </nav>
     </div>
   </div>
