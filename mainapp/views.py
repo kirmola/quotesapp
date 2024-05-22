@@ -82,7 +82,7 @@ class QuoteDetailView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["current_author"] = super().get_queryset().filter(author__author_slug=self.kwargs.get("author_name")).distinct().values("author__author", "author").get()
+        context["current_author"] = Author.objects.filter(author_slug=self.kwargs.get("author_name")).values("author", "author_slug").get()
         return context
 
 

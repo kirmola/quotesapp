@@ -61,6 +61,10 @@ DISTILL_SKIP_ADMIN_DIRS = True
 
 SITE_ID = 1
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 TAILWIND_APP_NAME = "theme"
 

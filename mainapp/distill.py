@@ -1,5 +1,5 @@
 from .models import *
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, Page
 
 
 def get_quotes():
@@ -28,26 +28,30 @@ def get_topics():
 
 def get_topic_paginator():
     topics = Topic.objects.all()
-    pagination = Paginator(topics, 15)
-    page_range = pagination.num_pages
-    for topic in topics:
-        for page_num in range(page_range):
+    data = {
+        str(topic.topic_slug): Paginator(Quote.objects.filter(topics=topic), 15).page_range for topic in topics
+    }        
+    
+    for k, v in data.items():
+        for each in v:
             yield {
-                "topic_name":topic.topic_slug,
-                "page":page_num,
+                "topic_name":k,
+                "page":each,
             }
     
 
 
 def get_author_paginator():
     authors = Author.objects.all()
-    pagination = Paginator(author, 15)
-    page_range = pagination.num_pages
-    for author in authors:
-        for page_num in page_range:
+    data = {
+        str(author.author_slug) : Paginator(Quote.objects.filter(author=author), 15).page_range for author in authors
+    }
+
+    for k, v in data.items():
+        for each in v:
             yield {
-                "author_name":author.author_slug,
-                "page":page_num,
+                "author_name":k,
+                "page":each,
             }
 
 
