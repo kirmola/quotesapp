@@ -10,7 +10,7 @@
         <div class="hidden space-x-1 md:inline-flex">
           <a href="https://kirmola.dev" class="btn btn-sm btn-link btn-outline-success">My Website</a>
           <a href="{% url "topics" %}" class="btn btn-sm btn-link">Topics</a>
-          <a href="{% url "authors" %}" class="btn btn-sm btn-link">Authors</a>
+          <a href="{% url "authors_by_alphabet" alphabet="a" %}" class="btn btn-sm btn-link">Authors</a>
           <a href="{% url "qotd" %}" class="btn btn-sm btn-link">Quote of the Day</a>
           {% comment %} <a href="#" class="btn btn-sm btn-link">Blog</a>
           <a href="#" class="btn btn-sm btn-link">Company</a>
@@ -75,7 +75,7 @@
             </button>
             <a href="https://kirmola.dev" class="btn btn-sm btn-link btn-outline-success">My Website</a>
             <a href="{% url "topics" %}" class="w-full btn btn-link">Topics</a>
-            <a href="{% url "authors" %}" class="w-full btn btn-link">Authors</a>
+            <a href="{% url "authors_by_alphabet" alphabet="a" %}" class="w-full btn btn-link">Authors</a>
             <a href="{% url "contact" %}" class="w-full btn btn-link">Contact</a>
             <a href="{% url "qotd" %}" class="w-full btn btn-link">Quote of the Day</a>
             {% comment %} <div class="form-icon">

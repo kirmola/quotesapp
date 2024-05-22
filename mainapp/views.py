@@ -29,7 +29,12 @@ class TopicListView(ListView):
 class AuthorListView(ListView):
     template_name = "authors/index.html"
     queryset = Author.objects.all().values("author", "author_slug")
-    
+    model = Author
+    page_kwarg = "alphabet"
+
+
+    def get_queryset(self):
+        return super().get_queryset().filter(author_slug__startswith=self.kwargs.get("alphabet"))    
 
 class QuoteView(DetailView):
     model = Quote

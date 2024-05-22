@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% comment %} {% load i18n %} {% endcomment %}
-{% block title %}Authors{% endblock title %}
+{% block title %}Authors | Index - {{view.kwargs.alphabet | title}}{% endblock title %}
 
-{% block meta_desc %}Delve into the minds of literary giants and discover timeless quotes that resonate with the human experience.{% endblock meta_desc %}
+{% block meta_desc %}Delve into the minds of literary giants and discover timeless quotes that resonate with the human experience. This page lists authors whose name starts with {{view.kwargs.alphabet | title}}.{% endblock meta_desc %}
 
 {% block base_content %}
 

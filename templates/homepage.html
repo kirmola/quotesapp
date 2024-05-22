@@ -31,7 +31,7 @@
       {% for each in object_list.0 %}
       <a class="list-item" href="{% url "Author_detail" author_name=each.author_slug %}">{{each.author|title}}</a>
       {% endfor %}
-      <a class="btn btn-primary" href="{% url "authors" %}">More Authors</a>
+      <a class="btn btn-primary" href="{% url "authors_by_alphabet" alphabet="a" %}">More Authors</a>
     </ul>
     <ul class="list">
       {% for each in object_list.1 %}
