@@ -29,8 +29,8 @@
     {% for each in extra_quotes %}
 
     <div class="card">
-        <a href="{% get_media_prefix %}{{ each.quote_id }}-1.png" data-fancybox="gallery">
-            <img class="rounded-t card-image" loading="lazy" src="{% get_media_prefix %}{{ each.quote_id }}-1.png" alt=""> 
+        <a href="https://kmcdn.kirmola.dev/{{ each.quote_id }}-1.png" data-fancybox="gallery">
+            <img class="rounded-t card-image" loading="lazy" src="https://kmcdn.kirmola.dev/{{ each.quote_id }}-1.png" alt=""> 
         </a>
         <div class="card-header">
             <a class="font-semibold text-xl" href="{% url "Topic_detail" topic_name=each.topics %}">{{each.topics__topic}} Quote of the Day</a>
