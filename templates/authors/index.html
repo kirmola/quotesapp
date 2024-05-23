@@ -13,6 +13,19 @@
     <input id="searchInput" class="mt-0 text-xl form-input" placeholder="Search Authors..">
 </div>
 
+<div class="my-6">
+    <div class="space-y-2">
+        <nav class="overflow-auto pagination">
+
+            {% for i in "abcdefghijklmnopqrstuvwxyz" %}
+            
+            <a href="{% url "authors_by_alphabet" alphabet=i %}" class="btn btn-outline-primary w-full mx-1">{{i|title}}</a>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+  
+
 <div class="grid grid-cols-1 md:grid-cols-6 gap-4" id="authorList">
     {% for each in object_list %}
     <ul class="list list-flush">
