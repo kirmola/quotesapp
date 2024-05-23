@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}{% trans "Oops! Nothing Here." %}{% endblock title %}
+{% block title %}Oops! Nothing Here.{% endblock title %}
 
 {% block base_content %}
 <section class="px-4 py-24 mx-auto max-w-7xl">
     <div class="w-full mx-auto text-center lg:w-2/3">
       <h1 class="mb-4 text-9xl font-extrabold text-gray-900">404</h1>
-      <p class="mb-3 text-xl font-bold text-gray-900 md:text-2xl">{% trans "Oh no! We couldn’t find the page you were looking for." %}</p>
+      <p class="mb-3 text-xl font-bold text-gray-900 md:text-2xl">Oh no! You are at wrong place. It's a 404.</p>
       <p class="mb-3 text-lg font-medium text-gray-700">
-        {% trans "Let's take you" %}
-        <a href="{% url "home" %}" class="underline">{% trans "Home" %}</a>.
+        Let's take you
+        <a href="{% url "home" %}" class="underline">Home</a>.
       </p>
     </div>
   </section>
