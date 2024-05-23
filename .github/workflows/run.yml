@@ -18,15 +18,14 @@ jobs:
       - run: |
           pipx install poetry
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
 
       - name: Install dependencies
         run: poetry install
 
-      - name: Run tailwind commands
-        run: |
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: |
           poetry run python3 manage.py tailwind install
           poetry run python3 manage.py tailwind build
 
