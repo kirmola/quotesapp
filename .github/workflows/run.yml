@@ -18,6 +18,9 @@ jobs:
       - run: |
           pipx install poetry
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
       - name: Install dependencies
         run: poetry install
