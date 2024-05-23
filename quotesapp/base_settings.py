@@ -175,4 +175,4 @@ STATIC_ROOT = BASE_DIR/"staticroot"
 
 MEDIA_ROOT = BASE_DIR / "content"
 
-MEDIA_URL = "https://kmcdn.kirmola.dev/"
+MEDIA_URL = "//kmcdn.kirmola.dev/"
