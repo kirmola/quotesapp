@@ -1,0 +1,45 @@
+name: Building QuotesApp
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build_project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' 
+      - run: |
+          pipx install poetry
+
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run tailwind commands
+        run: |
+          poetry run python3 manage.py tailwind install
+          poetry run python3 manage.py tailwind build
+
+      - name: Build Static Site
+        run: poetry run python3 .\manage.py distill-local public --collectstatic --force --settings=quotesapp.settings.prod
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './public'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
