@@ -11,6 +11,9 @@ files = [
     {file = "asgiref-3.8.1.tar.gz", hash = "sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590"},
 ]
 
+[package.dependencies]
+typing-extensions = {version = ">=4", markers = "python_version < \"3.11\""}
+
 [package.extras]
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
@@ -544,5 +547,5 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.12"
-content-hash = "e244fc60162bec72b8412bf24f4ce39b17d173c9be7a0bea98ed27ab0e4717bf"
+python-versions = "^3.10"
+content-hash = "c679059be8d71c9e52d9892bb3a20504a83c4c25a3f6f7c2999ed02d6ff2a4f5"
