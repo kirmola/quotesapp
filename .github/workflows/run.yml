@@ -13,17 +13,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12' 
-      - run: |
-          pipx install poetry
-          poetry install
-
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: |
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.12' 
+      # - run: |
+      #     pipx install poetry
+
+
+      - name: Install dependencies
+        run: |
+          pipx install poetry
+          poetry install
           poetry run python3 manage.py tailwind install --settings=quotesapp.settings.prod
           poetry run python3 manage.py tailwind build --settings=quotesapp.settings.prod
 
