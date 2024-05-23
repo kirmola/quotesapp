@@ -26,3 +26,5 @@ DATABASES = {
 }
 
 DEBUG = False
+
+NPM_BIN_PATH = 'npm'
