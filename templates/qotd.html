@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% comment %} {% load i18n %} {% endcomment %}
 {% load static %}
-{% block title %}Quote of the Day{% endblock title %}
+{% block title %}Featured Quote{% endblock title %}
 
 {% block custom_css_js %}
 
@@ -15,7 +15,7 @@
 {% block meta_desc %}{% endblock meta_desc %}
 
 {% block base_content %}
-<div class="mb-5 py-2 rounded-lg text-center bg-primary-light text-primary">{% now "DATE_FORMAT" %}</div>
+{% comment %} <div class="mb-5 py-2 rounded-lg text-center bg-primary-light text-primary">{% now "DATE_FORMAT" %}</div> {% endcomment %}
 
 <div class="md:mx-48 grid gap-4">
     
@@ -33,7 +33,7 @@
             <img class="rounded-t card-image" loading="lazy" src="https://kmcdn.kirmola.dev/{{ each.quote_id }}-1.png" alt=""> 
         </a>
         <div class="card-header">
-            <a class="font-semibold text-xl" href="{% url "Topic_detail" topic_name=each.topics %}">{{each.topics__topic}} Quote of the Day</a>
+            <a class="font-semibold text-xl" href="{% url "Topic_detail" topic_name=each.topics %}">"{{each.topics__topic}}" Featured Quote</a>
         </div>
         <div class="card-body md:text-xl">
             <blockquote><a href="{% url "Quote_detail" quote_url=each.quote_id %}">
