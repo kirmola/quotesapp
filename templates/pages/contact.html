@@ -8,7 +8,7 @@
 
 {% block base_content %}
 <section>
-<form id="my-form" action="https://formspree.io/f/xvoengwd" method="post">
+<form id="my-form" name="contact" netlify>
     {% comment %} {% csrf_token %} {% endcomment %}
         <div class="mx-auto max-w-screen-md">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center">Contact Me</h2>
@@ -32,7 +32,7 @@
         
     </form>
 </section>
-<script>
+{% comment %} <script>
     var form = document.getElementById("my-form");
     
     async function handleSubmit(event) {
@@ -63,5 +63,5 @@
       });
     }
     form.addEventListener("submit", handleSubmit)
-  </script>
+</script> {% endcomment %}
 {% endblock base_content %}
