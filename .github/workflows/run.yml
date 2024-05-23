@@ -27,6 +27,7 @@ jobs:
           node-version: 18
       - run: |
           pipx install poetry
+          pipx ensurepath
           poetry run python3 manage.py tailwind install --settings=quotesapp.settings.prod
           poetry run python3 manage.py tailwind build --settings=quotesapp.settings.prod
 
