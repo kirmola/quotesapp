@@ -26,8 +26,9 @@ jobs:
         with:
           node-version: 18
       - run: |
-          pipx install poetry
-          pipx ensurepath
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          export PATH="$HOME/.local/bin:$PATH"
           poetry run python3 manage.py tailwind install --settings=quotesapp.settings.prod
           poetry run python3 manage.py tailwind build --settings=quotesapp.settings.prod
 
