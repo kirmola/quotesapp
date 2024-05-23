@@ -30,7 +30,7 @@ jobs:
           poetry run python3 manage.py tailwind build --settings=quotesapp.settings.prod
 
       - name: Build Static Site
-        run: poetry run python3 .\manage.py distill-local public --collectstatic --force --settings=quotesapp.settings.prod
+        run: poetry run python3 manage.py distill-local public --collectstatic --force --settings=quotesapp.settings.prod
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
