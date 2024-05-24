@@ -37,9 +37,10 @@ jobs:
         run: poetry run python3 manage.py distill-local public --collectstatic --force --settings=quotesapp.settings.prod
 
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
+        uses: South-Paw/action-netlify-cli@v2
+        id: netlify
         with:
-          args: deploy --dir=public
+          args: 'deploy --json --dir \"./public\" --message \"draft [${{ github.sha }}]\"'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
